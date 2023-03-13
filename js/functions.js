@@ -133,9 +133,19 @@ console.log ("The price after discount is: $" + finalPrice.toFixed(2));
 
 
 //Extra Practice. Price Matching, with 10% off for finding a lower price
-var
-function matchedPrice(ourPrice, theirPrice, discPrice);
+alert("You have found something we offer, but at a lower price. Congrats, we price match with a discount")
 
+var theirPrice = Number(prompt("What is the price that you found?"));
+var discount = .9;
+//declare the var to feed into the function
+var newPrice = theirPrice * discount
+function priceMatch(theirPrice, discount) {
+    //declare the var to be calculated
+    return newPrice;
+
+}
+alert("Your new total is: $" + newPrice.toFixed(2))
+console.log ("Your new total is: $" + newPrice.toFixed(2))
 
 
 
