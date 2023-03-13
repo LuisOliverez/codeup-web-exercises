@@ -91,6 +91,7 @@ return tipAmount;
 }
 tipPercent /= 100;
 var tipAmount = calculetedTip(tipPercent, totalBill);
+alert ("Your tip amount is: $" + tipAmount.toFixed(2));
 console.log("The tip amount is: $" + tipAmount.toFixed(3));
 
 
@@ -101,7 +102,7 @@ console.log("The tip amount is: $" + tipAmount.toFixed(3));
 //  * then display the dollar amount they should tip
 //  */
 
-
+//Accidentally included this in previous
 
 
 // /**
@@ -129,23 +130,23 @@ function applyDiscount(price, discountPercent){
 
 var finalPrice = applyDiscount(origPrice, discountPercent);
 console.log ("The price after discount is: $" + finalPrice.toFixed(2));
+alert ("The price after discount is: $" + finalPrice.toFixed(2));
 
 
 
 //Extra Practice. Price Matching, with 10% off for finding a lower price
-alert("You have found something we offer, but at a lower price. Congrats, we price match with a discount")
 
-var theirPrice = Number(prompt("What is the price that you found?"));
-var discount = .9;
-//declare the var to feed into the function
-var newPrice = theirPrice * discount
-function priceMatch(theirPrice, discount) {
-    //declare the var to be calculated
+
+function priceMatch(theirPrice, discount){
+    var newPrice = theirPrice * discount;
     return newPrice;
-
 }
-alert("Your new total is: $" + newPrice.toFixed(2))
-console.log ("Your new total is: $" + newPrice.toFixed(2))
 
+alert("You have found something that we offer, but at a lower price. Congrats, we Price Match with a 10% discount!")
+var theirPrice = Number(prompt("What price did you find this product marked at?"));
+var discount = .9;
+var newPrice = theirPrice * discount;
+alert ("Your new price is: $" + newPrice.toFixed(2));
+console.log ("Your new Price is: $" + newPrice.toFixed(2))
 
 
