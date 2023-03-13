@@ -119,11 +119,23 @@ console.log("The tip amount is: $" + tipAmount.toFixed(3));
 //  * > applyDiscount(45.99, 0.12) // 40.4712
 //  */
 
-var origPrice = prompt('What is the price before dicount?');
-var dicountPrice = prompt('what is the discount percentage?');
-function applyDiscount(origPrice, discountPercent){
-var discountAmount = price * discountPercent;
-var discountPrice = price - discountAmount;
-return discountPrice;
-console.log ("The prie after discount is: $" + discountPrice);
+var origPrice = Number(prompt('What is the price before discount?'));
+var discountPercent = Number(prompt('What is the discount percentage?'));
+function applyDiscount(price, discountPercent){
+    var discountAmount = price * (discountPercent / 100);
+    var discountedPrice = price - discountAmount;
+    return discountedPrice;
 }
+
+var finalPrice = applyDiscount(origPrice, discountPercent);
+console.log ("The price after discount is: $" + finalPrice.toFixed(2));
+
+
+
+//Extra Practice. Price Matching, with 10% off for finding a lower price
+var
+function matchedPrice(ourPrice, theirPrice, discPrice);
+
+
+
+
