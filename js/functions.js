@@ -11,13 +11,13 @@
 // //  */
 //
 //
-// var name = prompt ("What is your name?");
-//
-// function sayHello(name) {
-//     return ("Hello, " + name + "!");
-// }
-//
-// console.log(sayHello(name) + " Welcome to codeup");
+var name = prompt ("What is your name?");
+
+function sayHello(name) {
+    return ("Hello, " + name + "!");
+}
+
+console.log(sayHello(name) + " Welcome to codeup");
 //
 // // /**
 // //  * TODO:
@@ -28,23 +28,23 @@
 // //  * console.log 'helloMessage' to check your work
 // //  */
 //
-// var helloMessage = sayHello("codeup");
-// console.log(helloMessage);
+var helloMessage = sayHello("codeup");
+console.log(helloMessage);
 // // /**
 // //  * TODO:
 // //  * Store your name as a string in a variable named 'myName', and pass that
 // //  * variable to the 'sayHello' function. You should see the same output in the
 // //  * console.
 // //  */
-// var myName = "Luis"
-// sayHello + myName
-// console.log(sayHello(myName));
+var myName = "Luis"
+sayHello + myName
+console.log(sayHello(myName));
 //
 //
 //
 // // Don't modify the following line, it generates a random number between 1 and 3
 // // and stores it in a variable named random
-// var random = Math.floor((Math.random() * 3) + 1);
+var random = Math.floor((Math.random() * 3) + 1);
 //
 // // /**
 // //  * TODO:
@@ -139,16 +139,16 @@ alert ("The price after discount is: $" + finalPrice.toFixed(2));
 // //Extra Practice. Price Matching, with 10% off for finding a lower price
 //
 //
-function priceMatch(theirPrice, discount){
-    var newPrice = theirPrice * discount;
-    return newPrice;
-}
-
-alert("You have found something that we offer, but at a lower price. Congrats, we Price Match with a 10% discount!")
-var theirPrice = Number(prompt("What price did you find this product marked at?"));
-var discount = .9;
-var newPrice = theirPrice * discount;
-alert ("Your new price is: $" + newPrice.toFixed(2));
-console.log ("Your new Price is: $" + newPrice.toFixed(2))
-
+// function priceMatch(theirPrice, discount){
+//     var newPrice = theirPrice * discount;
+//     return newPrice;
+// }
+//
+// alert("You have found something that we offer, but at a lower price. Congrats, we Price Match with a 10% discount!")
+// var theirPrice = Number(prompt("What price did you find this product marked at?"));
+// var discount = .9;
+// var newPrice = theirPrice * discount;
+// alert ("Your new price is: $" + newPrice.toFixed(2));
+// console.log ("Your new Price is: $" + newPrice.toFixed(2))
+//
 
