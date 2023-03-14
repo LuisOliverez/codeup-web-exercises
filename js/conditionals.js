@@ -57,9 +57,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 // function analyzeColor(randomColor) {
 //     switch (randomColor){
 //         case "blue":
-//             return 'blue is the color of the sky';
-//         case 'red':
-//             return'Strawberries are red';
+//             return "blue is the color of the sky";
+//         case "red":
+//             return "Strawberries are red";
 //         default:
 //             return "I don't know anything about " + randomColor;
 //     }
@@ -72,9 +72,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-// var usercolor =prompt("Enter a color");
-// alert(analyzeColor(usercolor))
-// console.log(analyzeColor(usercolor))
+// var userColor =prompt("Enter a color");
+// alert(analyzeColor(userColor))
+// console.log(analyzeColor(userColor))
 
 /* ########################################################################## */
 
@@ -97,30 +97,30 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-var luckyNumber = (Math.floor(Math.random() * 6));
-alert ("Your number is: " + luckyNumber)
-var yourNumber =luckyNumber;
-var totalAmount =prompt("What is your current total?")
-function calculateTotal(yourNumber, totalAmount){
-    switch (luckyNumber) {
-        case 0:
-            return totalAmount * 1;
-        case 1:
-            return totalAmount * .9;
-        case 2:
-            return totalAmount * .75;
-        case 3:
-            return  totalAmount * .65;
-        case 4:
-            return totalAmount * .5;
-        case 5:
-            return 0;
-        default:
-            return totalAmount
+var luckyNumber = (Math.floor(Math.random() * 6));//creat the var=luckyNumber to store the random generated number as luckyNumber to call on later
+alert ("Your number is: " + luckyNumber)//creat the alert to show user their luckyNumber
+var yourNumber = luckyNumber;//call on luckyNumber to store in yourNumber also
+var totalAmount =prompt("What is your current total?")//prompt user for totalAmount to be stored
+function calculateTotal(yourNumber, totalAmount){//creat the function to calculateTotal, taking in users var=yourNumber(ie.var=luckyNumber) and var=totalAmount
+    switch (luckyNumber) {//creat the switch conditional to take in luckyNumber and apply it to each succeeding case
+        case 0://creat the case if luckyNumber matches case 0
+            return totalAmount * 1;//if case matches, return case 0 product
+        case 1://if case 0 does not match, compares to case 1
+            return totalAmount * .9;//if case 1 matches, returns case 1 product
+        case 2://if none of the above case matches, compares to case 2
+            return totalAmount * .75;//if case 2 matches returns case 2 product
+        case 3://if none of the above case matches, return the case 3 product
+            return  totalAmount * .65;//if case 3 matches returns case 3 product
+        case 4://if none of the above case matches, return case 4 product
+            return totalAmount * .5;//if case 4 matches, returns case 4 product
+        case 5://if none of the above case matches, runs case 5
+            return 0;//if case 5 matches, return case 5 product
+        default://if none of the above match run default
+            return totalAmount//if none match luckyNumber will be default, var=totalAmount
     }
 }
-var newTotal = calculateTotal(yourNumber, totalAmount);
-console.log ("Your new total is: $" + newTotal.toFixed(2));
+var newTotal = calculateTotal(yourNumber, totalAmount);//create a var=newTotal to store the calculated total from whichever case matched AND to call on function calculatedTotal outside the scope
+console.log ("Your new total is: $" + newTotal.toFixed(2));//console.log(display) the newTotal at the end of the message with concatenate and use .toFixed to shorten the number to hundredths of a decimal
 
 
 /**
@@ -134,7 +134,7 @@ console.log ("Your new total is: $" + newTotal.toFixed(2));
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
 
-alert("You'r total before discount is: $" + totalAmount + ". Your new total is: $" + newTotal);
+alert("You're total before discount is: $" + totalAmount + ". Your new total is: $" + newTotal);
 //alert to display the var=totalAmount before disc, and var=newTotal
 /**
  * TODO:
@@ -166,9 +166,9 @@ if (wantToEnterNumber){
     var userInput = prompt("Enter a number here:");//creat a var prompt to store the entered number
     if (isNaN(userInput)) {//isNaN to creat the conditional to apply the userInput if other than a number is entered as an if statement so if userInput = NaN, alert is triggered
         alert("Invalid data type. Please enter a number");//creat the alert to be triggered if userInput=NaN
-    } else {//else statment to continue
+    } else {//else statement to continue
         var number = Number(userInput);//creat a var to convert userInput from string to Number
-        if (number % 2 === 0) {//creat if statment to use '% 2 === 0' to check if number is even or odd
+        if (number % 2 === 0) {//creat if statement to use '% 2 === 0' to check if number is even or odd
             alert("The number is even");//trigger alert if even number is produced, if not continue
         } else {//continue if not even ^
             alert("The number is odd");//this alert is triggered if odd number
@@ -181,7 +181,7 @@ if (wantToEnterNumber){
             alert("The number is negative.");//creat alert to display if the number is <0(negative)
         } else if (number > 0){//else if statement to continue IF number is <0(positive)
             alert("The number is positive.");//alert to display if number is 'positive'
-        } else {//close the if/else statment with else(not else if/if) var=number is 0
+        } else {//close the if/else statement with else(not else if/if) var=number is 0
             alert("The number is zero.");//alert to display that the number is 0
         }
     }
