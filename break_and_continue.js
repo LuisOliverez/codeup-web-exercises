@@ -1,3 +1,3 @@
 'use strict';
 
-var userInput = prompt('please enter a number')
+var userInput = prompt('please enter an ODD number';
