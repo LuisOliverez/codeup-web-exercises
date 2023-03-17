@@ -22,18 +22,18 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-// function analyzeColor(colorName){
-// if (colorName === "blue") {
-//     return "blue is the color of the sky";
-// } else if (colorName === 'red') {
-//     return "Strawberries are red";
-// }     else  {
-//         return "I don't know anything about " + colorName;
-// }
-// }
-// console.log(analyzeColor("blue"));
-// console.log(analyzeColor("red"));
-// console.log(analyzeColor("cyan"));
+function analyzeColor(colorName){
+if (colorName === "blue") {
+    return "blue is the color of the sky";
+} else if (colorName === 'red') {
+    return "Strawberries are red";
+}     else  {
+        return "I don't know anything about " + colorName;
+}
+}
+console.log(analyzeColor("blue"));
+console.log(analyzeColor("red"));
+console.log(analyzeColor("cyan"));
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -48,23 +48,23 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
-// console.log(analyzeColor(randomColor));
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
-// function analyzeColor(randomColor) {
-//     switch (randomColor){
-//         case "blue":
-//             return "blue is the color of the sky";
-//         case "red":
-//             return "Strawberries are red";
-//         default:
-//             return "I don't know anything about " + randomColor;
-//     }
-// }
-// console.log(analyzeColor(randomColor));
+function analyzeColor(randomColor) {
+    switch (randomColor){
+        case "blue":
+            return "blue is the color of the sky";
+        case "red":
+            return "Strawberries are red";
+        default:
+            return "I don't know anything about " + randomColor;
+    }
+}
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -72,9 +72,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-// var userColor =prompt("Enter a color");
-// alert(analyzeColor(userColor))
-// console.log(analyzeColor(userColor))
+var userColor =prompt("Enter a color");
+alert(analyzeColor(userColor))
+console.log(analyzeColor(userColor))
 
 /* ########################################################################## */
 
@@ -135,6 +135,7 @@ console.log ("Your new total is: $" + newTotal.toFixed(2));//console.log(display
 // var luckyNumber = Math.floor(Math.random() * 6);
 
 alert("You're total before discount is: $" + totalAmount + ". Your new total is: $" + newTotal);
+
 //alert to display the var=totalAmount before disc, and var=newTotal
 /**
  * TODO:
