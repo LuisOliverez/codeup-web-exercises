@@ -62,8 +62,8 @@
      * Refactor your above code to use a `forEach` loop
      */
 
-names.forEach(function(names){
-    console.log('Here is ' + names + "!!");
+names.forEach(function(name){
+    console.log('Here is ' + name + "!!");
 })
 
 
@@ -83,11 +83,11 @@ names.forEach(function(names){
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
 
-    function getFirsElement(names){
+    function getFirstElement(names){
         return names[0];
     }
 
-    console.log('The first element is: ' + getFirsElement(names));
+    console.log('The first element is: ' + getFirstElement(names));
 
 
 
@@ -100,8 +100,9 @@ names.forEach(function(names){
 
 
 
-    function getLastElement(names){
-        return names[3];
+    function     function getLastElement(names){
+        getLastElement(names){
+        return names[names.length-1];
     }
 
     console.log('The last element is: ' + getLastElement(names));
