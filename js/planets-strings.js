@@ -1,6 +1,6 @@
 (function(){
     "use strict";
-    console.log("PLANETS-STRINGS")
+    console.log("FROM PLANETS-STRINGS")
     var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
     var planetsArray = planetsString.split('|');
 
@@ -32,7 +32,7 @@
 
     // var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
     // var planetsArray = planetsString.split('|');
-var planetsListHtml = '<ul>\n' + planetsArray.map(planetString => '  <li>${planetString}</li>').join('\n') + '\n</ul>';
+var planetsListHtml = ("<ul>\n" + planetsArray.map(planetString => "  <li>planetsArray</li>").join("\n") + "\n</ul>");
 
     console.log(planetsListHtml);
 
