@@ -1,4 +1,4 @@
-(function(){
+(function () {
     "use strict";
 
     /**
@@ -10,9 +10,6 @@
     var names = ['Aaron', 'Brenda', 'Chuck', 'Daisy'];
 
 
-
-
-
     /**
      * TODO:
      * Create a log statement that will log the number of elements in the names
@@ -21,10 +18,6 @@
 
 
     console.log(names.length);
-
-
-
-
 
 
     /**
@@ -47,14 +40,10 @@
 
     for (var i = 0; i < names.length; i++) {
 
-        names.forEach(function(name) {
+        names.forEach(function (name) {
             console.log('The name at index: ' + i + ' is: ' + names[i++]);
         });
     }
-
-
-
-
 
 
     /**
@@ -62,11 +51,9 @@
      * Refactor your above code to use a `forEach` loop
      */
 
-names.forEach(function(name){
-    console.log('Here is ' + name + "!!");
-})
-
-
+    names.forEach(function (name) {
+        console.log('Here is ' + name + "!!");
+    })
 
 
     /**
@@ -83,30 +70,24 @@ names.forEach(function(name){
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
 
-    function getFirstElement(names){
+    function getFirstElement(names) {
         return names[0];
     }
 
     console.log('The first element is: ' + getFirstElement(names));
 
 
-
-    function getSecElement(names){
+    function getSecElement(names) {
         return names[1];
     }
 
     console.log('The second element is: ' + getSecElement(names));
 
 
-
-
-    function     function getLastElement(names){
-        getLastElement(names){
-        return names[names.length-1];
+    function getLastElement(names) {
+        return names[names.length - 1];
     }
 
     console.log('The last element is: ' + getLastElement(names));
-
-
 
 })();

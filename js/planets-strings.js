@@ -31,10 +31,10 @@
 
 
     // var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
-    // var planetsArray = planetsString.split('|');
-var planetsListHtml = ("<ul>\n" + planetsArray.map(planetString => "  <li>planetsArray</li>").join("\n") + "\n</ul>");
-
-    console.log(planetsListHtml);
+//     // var planetsArray = planetsString.split('|');
+// var planetsListHtml = ("<ul>\n" + planetsArray.map(planetString => "  <li>planetsArray</li>").join("\n") + "\n</ul>");
+//
+//     console.log(planetsListHtml);
 
 
 })();
