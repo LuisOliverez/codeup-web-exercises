@@ -85,9 +85,19 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+//     var books = [
+//         {
+//             title: "Charlettes Web",
+//             author:{
+//             firstName:"Elwyn",
+//         lastName:"White,"
+// }
+// ]
+
     var books = [
         {
-            title: "The Salmon of Slamon",
+            title: "The Slamon of Salmon",
             firstName: "Chad",
             lastName: "Lad",
         },
@@ -132,15 +142,15 @@
      *      ...
      */
 
-    for (let i = 0; i < books.length; i++){
+    for (let i = 0; i < books.length; i++) {
         books.indexOf(i);
         console.log("------------------")
         console.log("Book # " + (i + 1));
-    console.log("Title: " + books[i].title);
+        console.log("Title: " + books[i].title);
         console.log("Author: " + books[i].firstName + " " + books[i].lastName);
 
-};
-
+    }
+    ;
 
 
     /**
@@ -154,9 +164,13 @@
      *   `showBookInfo` function.
      */
 
-
-    var createBook = function (title, )
-
+// function createBook(title, author){
+//     return {
+//         title: title,
+//         author: author,
+//
+//     }
+//     }
 
 
 })();
