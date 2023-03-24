@@ -74,8 +74,3 @@
 // sayHello();
 
 
-function favoreiteJunkFood(){
-    var pizza = "Round Table";
-    var fries = "In N Out";
-    var
-}
