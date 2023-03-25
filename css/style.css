@@ -1,5 +1,10 @@
-.fancy-header {
-    color: purple;
-    text-decoration: underline;
 
+
+#container>h2, ol {
+    color: purple;
 }
+
+
+/*.extra-large{*/
+/*    font-size: 75px;*/
+/*}*/
