@@ -1,8 +1,14 @@
 body {
     background-color: lightgreen;
-    background-image:"";
+    background-image: url("https://64.media.tumblr.com/162cc3dfa5cef6c882aba5453445f0fb/tumblr_mx3y1yYFad1qcm0eto1_1280.png");
+    background-size: 12em 8em;
+    background-repeat: repeat-x;
+
 }
 
+.fancy-list {
+    list-style-type: '\1F332';
+}
 
 .fancy-header {
     color: purple;
