@@ -1,6 +1,6 @@
 
 
-                            /*BODY SECTION*/
+                            /*BODY/PAGE SECTION*/
 
 body {
     background-color: lightgreen;
@@ -9,6 +9,12 @@ body {
     background-repeat: repeat-x;
 
 }
+
+.fancy-font {
+    font-family: "Lobster family", montserrat, serif;
+}
+
+
                             /* HEADERS */
 .fancy-list{
 
@@ -24,9 +30,7 @@ body {
     text-decoration: underline;
 }
 
-.fancy-font {
-    font-family: "Lobster family", montserrat, serif;
-}
+
                             /* TABLES */
 table{
     border-collapse: separate;
