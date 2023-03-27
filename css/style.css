@@ -1,10 +1,15 @@
-
-
-#container>h2, ol {
-    color: purple;
+body {
+    background-color: lightgreen;
+    background-image:"";
 }
 
 
-/*.extra-large{*/
-/*    font-size: 75px;*/
-/*}*/
+.fancy-header {
+    color: purple;
+    text-align: center;
+}
+
+#container>h2 {
+    text-decoration: underline;
+}
+
