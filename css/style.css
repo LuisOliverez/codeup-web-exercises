@@ -19,3 +19,6 @@ body {
     text-decoration: underline;
 }
 
+.fancy-font {
+    font-family: "Lobster family", montserrat;
+}
