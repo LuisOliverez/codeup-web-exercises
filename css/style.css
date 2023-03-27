@@ -1,3 +1,7 @@
+
+
+                            /*BODY SECTION*/
+
 body {
     background-color: lightgreen;
     background-image: url("https://64.media.tumblr.com/162cc3dfa5cef6c882aba5453445f0fb/tumblr_mx3y1yYFad1qcm0eto1_1280.png");
@@ -5,16 +9,17 @@ body {
     background-repeat: repeat-x;
 
 }
+                            /* HEADERS */
+.fancy-list{
 
-.fancy-list {
-    list-style-type: '\1F332';
+    list-style-type: '\1F3C6';
 }
 
 .fancy-header {
     color: purple;
     text-align: center;
 }
-
+                            /* CONTAINERS */
 #container>h2 {
     text-decoration: underline;
 }
@@ -22,7 +27,7 @@ body {
 .fancy-font {
     font-family: "Lobster family", montserrat, serif;
 }
-
+                            /* TABLES */
 table{
     border-collapse: separate;
     width: 100%;
@@ -37,6 +42,8 @@ td{
     font-style: italic;
 }
 
+
+                            /* LINKS */
 a:link {
     color: red;
 }
