@@ -18,9 +18,9 @@ body, html {
     border-radius: 4px;
     margin: 5px;
     font-family: Arial, Ubuntu, sans-serif;
-    display: inline-block;
 
 }
+
 
 .message-success{
     color: green;
