@@ -27,6 +27,7 @@ a {
 }
 .top-nav {
     background: var(--light-bg);
+    display: inline-block;
 }
 .nav {
     list-style-type: none;
