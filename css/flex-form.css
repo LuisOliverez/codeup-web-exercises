@@ -23,6 +23,8 @@ body {
 .cover {
     height: 100vh;
     width: 100%;
+    display: flex;
+
     /* TODO: add a flex container to this selector */
 }
 
@@ -31,6 +33,8 @@ body {
     position: relative;
     border: 20px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
+    display: flex;
+    margin: auto;
     /* TODO: Add an automatic margin and a flex container to this selector */
 }
 
@@ -53,6 +57,7 @@ body {
 }
 
 .destination {
+    flex-basis: 15em;
     /* TODO:
         Add an explicit size for items along the main axis of 15em.
         Read more about Flex Basis: https://java.codeup.com/appendix/further-reading/html-css/flexbox-additional-concepts/#flex-basis */
