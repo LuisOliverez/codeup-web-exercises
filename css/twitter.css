@@ -13,7 +13,7 @@ body, html {
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     font-family: Arial, Ubuntu, sans-serif;
 }
 header {
@@ -51,35 +51,97 @@ a {
     display: inline-block;
 }
 
+
 .nav-link:hover {
     color: var(--link-color);
 }
 .profile {
-    background: green;
+    background: var(--light-bg);
     height: 80px;
 }
 
 .profile-image{
-    position: absolute;
-    top: 250px;
+    position: relative;
+    top: -2em;
 }
 
-.profile-details {
+.profile-details{
+    margin: 1px;
+    width: calc(25% - 1em);
+}
+
+
+/*.who-to-follow{*/
+/*    */
+/*    background-size: contain;*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: center;*/
+/*    float: right;*/
+/*    display: inline-block;*/
+/*    width: calc(15% - 1em);*/
+/*    position: absolute;*/
+/*    top: 48%;*/
+/*    left: 84%;*/
+/*}*/
+.who-to-follow {
+    background-color: var(--light-bg);
+    overflow: auto;
+    background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        float: right;
+        display: inline-block;
+        width: calc(25% - 1em);
+        position: absolute;
+        top: 48%;
+        left: 74%;
+}
+
+.who-to-follow li {
+    list-style: none;
+    margin-bottom: 8px;
+    /*overflow: auto;*/
+}
+
+.who-to-follow img {
     float: left;
-    width: 25%;
-
+    margin-right: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
 }
+
+.who-to-follow .username {
+    font-weight: bold;
+}
+
+.who-to-follow .follow-link {
+    display: inline-block;
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 4px;
+}
+
+
+
+
 .timeline{
-    float: inside;
-    width: 50%;
-    margin: .5em;
+    background: var(--light-bg);
+    margin: -150px 32% -5px;
+    width: 600px;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 16px;
+    overflow: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: ;
 }
 
-.who-to-follow{
-    float: right;
-    width: 25%;
-}
 
+h3{
+    padding-top: 5px;
+}
 
 .btn {
     border: 1px solid var(--main-link-color);
@@ -88,6 +150,8 @@ a {
     font-weight: bold;
     padding: 8px;
     border-radius: 5px;
+    position: relative;
+    bottom: 6.7em;
 }
 .btn-large {
     font-size: 1.3em;
