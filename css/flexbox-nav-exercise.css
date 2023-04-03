@@ -82,6 +82,7 @@ nav ul li{
 
 .logo img{
     display: flex;
+    background: none;
     margin: 0 auto;
 }
 
