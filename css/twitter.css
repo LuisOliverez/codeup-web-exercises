@@ -115,12 +115,12 @@ a {
     font-weight: bold;
 }
 
-.who-to-follow .follow-link {
-    display: inline-block;
-    font-size: 0.8em;
-    color: #555;
-    margin-top: 4px;
-}
+/*.who-to-follow .follow-link {*/
+/*    !*display: inline-block;*!*/
+/*    !*font-size: 0.8em;*!*/
+/*    !*color: #555;*!*/
+/*    !*margin-top: 4px;*!*/
+/*}*/
 
 
 
@@ -135,7 +135,6 @@ a {
     overflow: auto;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: ;
 }
 
 
