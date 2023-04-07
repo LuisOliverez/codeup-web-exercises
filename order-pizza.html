@@ -51,101 +51,56 @@
 
 <h2>Build your own pizza!</h2>
 
-<div>
+
+                <!--TABS CONTAINER-->
+<div class="container">
+<nav>
+
+    <div class="nav nav-tabs" id="myTab" role="tablist">
+
+        <!--SIZE AND CRUST TAB-->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="size-and-crust-tab" data-bs-toggle="tab" data-bs-target="#size-and-crust"
+                    type="button" role="tab" aria-controls="size-and-crust" aria-selected="true">
+                <span class="badge rounded-pill bg-secondary">1</span>Size and Crust
+            </button>
+        </li>
 
 
-    <ul class="nav nav-tabs">
+        <!--CHEESE AND SAUCE TAB-->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="cheese-and-sauce-tab" data-bs-toggle="tab" data-bs-target="#cheese-and-sauce" type="button" role="tab" aria-controls="cheese-and-sauce"
+                    aria-selected="true">
+                <span class="badge rounded-pill bg-secondary">2</span>Cheese and Sauce
+            </button>
+        </li>
 
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
 
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="size-and-crust-tab" data-bs-toggle="tab" data-bs-target="#size-and-crust"
-                        type="button" role="tab" aria-controls="size-and-crust" aria-selected="true"><span
-                        class="badge rounded-pill bg-secondary">1</span>Size and Crust
-                </button>
-            </li>
+        <!--TOPPINGS TAB-->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="toppings-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button" role="tab" aria-controls="toppings" aria-selected="true">
+                <span
+                    class="badge rounded-pill bg-secondary">3</span>Toppings
+            </button>
+        </li>
+    </div>
 
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="cheese-and-sauce-tab" data-bs-toggle="tab"
-                        data-bs-target="#cheese-and-sauce" type="button" role="tab" aria-controls="cheese-and-sauce"
-                        aria-selected="false"><span class="badge rounded-pill bg-secondary">2</span>Cheese and Sauce
-                </button>
-            </li>
-
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="toppings-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button"
-                        role="tab" aria-controls="toppings" aria-selected="false"><span
-                        class="badge rounded-pill bg-secondary">3</span>Toppings
-                </button>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="size-and-crust" role="tabpanel"
-                 aria-labelledby="size-and-crust-tab">why
-            </div>
-            <div class="tab-pane fade" id="cheese-and-sauce" role="tabpanel" aria-labelledby="cheese-and-sauce-tab">
-                ...
-            </div>
-            <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">...</div>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="size-and-crust" role="tabpanel"
+             aria-labelledby="size-and-crust-tab">
         </div>
-
-    </ul>
-</div>
-
-
-<div class="card d-flex flex-colum text-dark bg-light mb-3" style="max-width: 100%; max-height: 100%">
-    <div class="card-header">Choose Size and Crust</div>
-    <div class="card-body flex-grow-1">
-
-            <div class="card-header">Hand Tossed</div>
-            <div class="card-body">
-                <p class="card-title">Garlic seasoned crust with rich, buttery taste.</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="size-small">
-                    <label class="form-check-label" for="size-small">
-                        Small(10")
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="size-medium">
-                    <label class="form-check-label" for="size-medium">
-                        Medium(12")
-                    </label>
-                </div>
-            </div>
-
-
-            <div class="card text-dark bg-light mb-3" style="max-width: 100%; max-height: 100%">
-                <div class="card-header">Crispy Thin</div>
-                <div class="card-body">
-                    <p class="card-title">Thin enough for optimum crispy to crunchy ratio.</p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Medium(12")
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Large(14")
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-
-<div class="card-footer d-flex justify-content-end">
-    <button type="button" class="btn btn-primary d-flex flex-direction-flex-end">Next Step ></button>
-</div>
+        <div class="tab-pane fade" id="cheese-and-sauce" role="tabpanel" aria-labelledby="cheese-and-sauce-tab">
+        </div>
+        <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">...</div>
     </div>
-    </div>
+</nav>
 
 
 
 
-<!--                   SIZE AND CRUST                      -->
-<div class="card d-flex flex-colum text-dark bg-light mb-3" style="max-width: 100%; max-height: 100%">
+<!--    CHEESE AND CRUST TAB CONTENT-->
+
+<div class="tab-content" id="size-and-crust card d-flex flex-colum text-dark bg-light mb-3" style="max-width: 100%; max-height: 100%">
     <div class="card-header">Choose Size and Crust</div>
     <div class="card-body flex-grow-1">
 
@@ -191,80 +146,60 @@
             <button type="button" class="btn btn-primary d-flex flex-direction-flex-end">Next Step ></button>
         </div>
     </div>
+
+
+
+
+
+</div>
 </div>
 
 
+<!--                        SIZE AND CRUST                                -->
 
 
+
+
+<!--                   CHEESE AND SAUCE                      -->
 
 
 <div class="card d-flex flex-colum text-dark bg-light mb-3" style="max-width: 100%; max-height: 100%">
     <div class="card-header">Cheese and Sauce</div>
     <div class="card-body flex-grow-1">
 
-        <div class="card-header">Hand Tossed</div>
+        <div class="display-flex-colum card-header">Cheese</div>
+
+
+        <div class="card-header">How Much?</div>
+
         <div class="card-body">
-            <p class="card-title">Garlic seasoned crust with rich, buttery taste.</p>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="size-small">
-                <label class="form-check-label" for="size-small">
-                    Small(10")
-                </label>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="cheese-amount"
+                        data-bs-toggle="dropdown" aria-expanded="true">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="cheese-amount">
+                    <li><a class="dropdown-item" href="#">Light Cheese</a></li>
+                    <li><a class="dropdown-item" href="#">Normal Cheese</a></li>
+                    <li><a class="dropdown-item" href="#">Extra Cheese</a></li>
+                    <li><a class="dropdown-item" href="#">Double Cheese</a></li>
+                </ul>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="size-medium">
-                <label class="form-check-label" for="size-medium">
-                    Medium(12")
-                </label>
-            </div>
-        </div>
 
-
-        <div class="card text-dark bg-light mb-3" style="max-width: 100%; max-height: 100%">
-            <div class="card-header">Crispy Thin</div>
-            <div class="card-body">
-                <p class="card-title">Thin enough for optimum crispy to crunchy ratio.</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Medium(12")
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Large(14")
-                    </label>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card-footer d-flex justify-content-end">
-            <button type="button" class="btn btn-primary d-flex flex-direction-flex-end">Next Step ></button>
         </div>
     </div>
+
+
+
+<div class="card-footer d-flex justify-content-end">
+    <button type="button" class="btn btn-primary d-flex flex-direction-flex-end">Previous</button>
+    <button type="button" class="btn btn-primary d-flex flex-direction-flex-end">Next Step ></button>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 
 
 </body>
 </html>
+
