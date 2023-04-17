@@ -13,7 +13,9 @@
 
                                   <!--LIST-->
 
-<button id="btn2">Change List Items</button>
+<button id="btn2">Change Every Other List Item</button>
+                          <br>
+<button id="btn5">Change 1st List Items</button>
 <ul>
   <li data-dbid="1">Item 1</li>
   <li data-dbid="2">Item 2</li>
@@ -110,8 +112,14 @@ document.getElementById('btn3').addEventListener('click', function (){
 
 
     // TODO: Set text color of li with dbid = 1 to blue
-var item1 = document.querySelector('[data-dbid="1"]');
-    item1.style.color = "blue";
+
+    let item1 = document.querySelector('[data-dbid="1"]');
+
+    document.getElementById('btn5').addEventListener('click', function (){
+      item1.style.color = "blue";
+
+    });
+
 
 
 
