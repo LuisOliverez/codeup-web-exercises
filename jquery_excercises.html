@@ -35,17 +35,24 @@
 
 $('h1').click(
     function (){
-        $(this).css('background-color', 'green')
+        $(this).css('background-color', 'green');
     }
 )
 
 $('p').click(
     function (){
-        $(this).css('font-size', '18px')
+        $(this).css('font-size', '18px');
     }
 )
 
-
+$('#codeup').hover(
+    function () {
+        $(this).css('color', '#FF0000');
+    },
+    function (){
+        $(this).css('color', '#000');
+    }
+);
 
 
 
