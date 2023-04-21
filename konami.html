@@ -1,30 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 <head>
+
     <title>Konami Code</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #262626;
+        }
+        ul{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            trandform:transLate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        ul li{
+            list-style: none;
+            font-family: contra;
+            font-size: 3em;
+            letter-spacing: 15px;
+            text-shadow: none;
+            animation: animate 1s infinite linear;}
+        @keyframes animate {
+            0%{
+                color: #F69E15;
+                text-shadow: none;
+            }
+            18%{
+                color: #F69E15;
+                text-shadow: none;
+            }
+            20%{
+                color: #ff0000;
+                text-shadow: 0 0 7px #ff0000, 0 0 20px #0000ff;
+            }
+            30%{
+                color: #F69E15;
+                text-shadow: none;
+            }
+            35%{
+                color: #ff0000;
+                text-shadow: 0 0 7px #ff0000, 0 0 20px #0000ff;
+            }
+            70%{
+                color: #F69E15;
+                text-shadow: none;
+            }
+            85%{
+                color: #ff0000;
+                text-shadow: 0 0 7px #ff0000, 0 0 20px #0000ff;
+            }
+            90% {
+                color: #F69E15;
+                text-shadow: none;
+            }
+            100%{
+                color: #F69E15;
+                text-shadow: none;
+            }
+        }
+
+        ul li:nth-child(1){
+            animation-delay: .7s;
+        }
+        ul li:nth-child(2){
+            animation-delay: 1.6s;
+        }
+        ul li:nth-child(3){
+            animation-delay: 2.2s;
+        }
+        ul li:nth-child(4){
+            animation-delay: 3s;
+        }
+        ul li:nth-child(5){
+            animation-delay: 3.4s;
+        }
+        ul li:nth-child(6){
+            animation-delay: 4s;
+        }
+
+        h1{
+            position: absolute;
+            top: 20%;
+            left: 40%;
+            trandform:transLate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+
+
+        }
+    </style>
+
 </head>
+
+                    <!--PAGE CONTENT-->
 <body>
-<h1>Konami Code</h1>
+
+<h1>ADD 30 LIVES TO GO BACK 36</h1>
+
+
+
+ <ul>
+     <li>C</li>
+     <li>O</li>
+     <li>N</li>
+     <li>T</li>
+     <li>R</li>
+     <li>A</li>
+ </ul>
+
+
+
+
+<!--<div id='game'></div>-->
+
+
+<!--<script type='text/javascript'>-->
+<!--    EJS_player = '#game';-->
+
+<!--    // Can also be snes9x-->
+<!--    EJS_core = 'snes';-->
+
+<!--    //SNES mouse-->
+<!--    EJS_mouse = false;-->
+
+<!--    // SNES Multitap-->
+<!--    EJS_multitap = false;-->
+
+<!--    // URL to BIOS file-->
+<!--    EJS_biosUrl = '';-->
+
+<!--    // URL to Game rom-->
+<!--    EJS_gameUrl = '';-->
+
+<!--    // Path to the data directory-->
+<!--    EJS_pathtodata = 'data/';-->
+<!--</script>-->
+<!--<script src='EmulatorJS/data/loader.js'></script>-->
+
+
+
+
+
+
+                    <!--END OF PAGE CONTENT-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 
 <script>
     "use strict";
-    let keyCode = prompt("please enter the code");
 
-    $(document).keyup(function(event){
-        console.log(event.keyCode);
-    });
+  //   prompt users for code(including  keys enter)
+  //   if code is correct, allow alert "YOU HAVE ADDED 30 LIVES!!'
 
 
 
 
 
+    $(document).ready(function () {
+        let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        let userKeys = [];
+// PROMPT
+
+
+        console.log(userKeys);
 
 
 
 
+      // KEYCODE FUNCTION
+        $(document).keyup(function (event) {
+            console.log(event.keyCode);
+            userKeys.push(event.keyCode);
+            if (userKeys.join(',') === konamiCode.join(',')) {
+                alert('YOU HAVE ADDED 30 LIVES!!');
 
+            }
+        });
+  });
 </script>
 </body>
 </html>
