@@ -91,13 +91,10 @@
         let userKeys = [];
 
 
-
         console.log(userKeys);
 
 
-
-
-      // KEYCODE FUNCTION
+        // KEYCODE FUNCTION
         $(document).keyup(function (event) {
             console.log(event.keyCode);
             userKeys.push(event.keyCode);
@@ -105,26 +102,30 @@
                 alert('YOU HAVE ADDED 30 LIVES!!');
 
 
-
                 $(document).ready(function () {
                     $("h1").replaceWith('<ul class="animate"><li>C</li><li>O</li><li>N</li><li>T</li><li>R</li><li>A</li></ul>');
 
                     $('body').css({
                         // 'margin': '0',
-                         // 'padding': '0',
+                        // 'padding': '0',
+                        'background-color': '#345203',
                         'background-image': 'url("images/contra.webp")',
                         'background-repeat': 'no-repeat',
                         'background-size': 'cover',
                         // 'background-position': 'center'
-})
+                    });
 
-                    $('.sounds').append('<audio autoplay hidden><source src="https://www.101soundboards.com/sounds/183226-super-contra-sounds-sound"></source></audio>');
+                    $('.sounds').append('<audio id="konamiAudio"><source src="./audio/"></audio>');
 
                 });
-            }
-        });
+                setTimeout(function () {
+                    $("#konamiAudio")[0].play();
+                }, 2000);
 
-  });
+            }
+
+         });
+    });
 
 
 
