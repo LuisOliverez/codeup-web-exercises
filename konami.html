@@ -14,8 +14,18 @@
 <body class="sounds">
 
 <h1>
-    THE TIME THAT WE KILL KEEPS US ALIVE. ADD 30 LIVES TO ADD TO YOUR OWN
+    ADD 30 LIVES
 </h1>
+<!--UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT, B, A, ENTER-->
+<h1>
+    A PLACE OF TREASURED WORTH, WHERE RICHES WAIT TO BE UNEARTHED
+</h1>
+<!--MINE-->
+<h1>
+    TO SAFEGUARD OR SHIELD FROM HARM, AND TO PRESENT IN COURT A LEGAL CHARM
+</h1>
+<!--DEFEND-->
+
 
 <div id="customAlert" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -27,7 +37,7 @@
                 <p id="customAlertMessage"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
             </div>
         </div>
     </div>
@@ -78,10 +88,9 @@
                 console.log(event.keyCode);
                 userKeys.push(event.keyCode);
                 if (userKeys.join(',') === konamiCode.join(',')) {
-                    customAlert('YOU HAVE ADDED 30 LIVES!!');
+                    customAlert('YOU HAVE ADDED 30 LIVES IN');
 
 
-                    $("h1").replaceWith('<ul class="animate"><li>C</li><li>O</li><li>N</li><li>T</li><li>R</li><li>A</li></ul>');
 
 
                     $('body').css({
@@ -91,7 +100,6 @@
                         'background-image': 'url("images/contra.webp")',
                         'background-repeat': 'no-repeat',
                         'background-size': 'cover',
-                        // 'background-position': 'center'
                     });
 
                     $('.sounds').append('<audio id="konamiAudio"><source src="./audio/contra%20ending.mp3"></audio>');
@@ -102,6 +110,9 @@
                         $("#konamiAudio")[0].play();
                     }, 500);
                     });
+
+                    $(".modal-header").replaceWith('<ul class="animate"><li>C</li><li>O</li><li>N</li><li>T</li><li>R</li><li>A</li></ul>');
+
                     }
 
             });
