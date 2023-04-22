@@ -4,11 +4,13 @@
 
     <title>Konami Code</title>
 <link rel="stylesheet" href="./css/konami.css">
+    <link rel="stylesheet"
+          href="../../Music/Music/Media.localized/Apple Music/Game & Sound/Game & Sound_ VGM Covers, Vol. 2/05 Contra - Jungle Theme.m4p">
 
 </head>
 
                     <!--PAGE CONTENT-->
-<body>
+<body class="sounds">
 
 <h1>
     THE TIME THAT WE KILL KEEPS US ALIVE. ADD 30 LIVES TO ADD TO YOUR OWN
@@ -108,18 +110,21 @@
                     $("h1").replaceWith('<ul class="animate"><li>C</li><li>O</li><li>N</li><li>T</li><li>R</li><li>A</li></ul>');
 
                     $('body').css({
-    'margin': '0',
-    'padding': '0',
-    'background': '#262626'
+                        // 'margin': '0',
+                         // 'padding': '0',
+                        'background-image': 'url("images/contra.webp")',
+                        'background-repeat': 'no-repeat',
+                        'background-size': 'cover',
+                        // 'background-position': 'center'
 })
+
+                    $('.sounds').append('<audio autoplay hidden><source src="https://www.101soundboards.com/sounds/183226-super-contra-sounds-sound"></source></audio>');
 
                 });
             }
         });
 
   });
-
-
 
 
 
