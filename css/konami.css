@@ -87,25 +87,40 @@ ul li:nth-child(6) {
     animation-delay: 4s;
 }
 
-/*h1 {*/
-/*    !*position: absolute;*!*/
-/*    top: 20%;*/
-/*    left: 40%;*/
-/*    transform: transLate(-50%, -50%);*/
-/*    margin: 0;*/
-/*    padding: 0;*/
+hide {
+ display: none ;
 
-/*}*/
+}
 
 
 .modal {
     width: 100%;
-    background-color: coral;
+    background-color: greenyellow;
+
+
+.modal-content{
+    background-image: ;
 }
+
 .modal-header{
-    background-color: darkgoldenrod;
+    background-color: green;
     color: red;
 }
 
+/*.modal-title{*/
+/*    background-color: darkgoldenrod;*/
+/*}*/
+
+/*.modal-body{*/
+/*    background-color: blueviolet;*/
+/*}*/
+
+.modal-footer {
+    /*background-color: mediumvioletred;*/
+}
 
 
+#customAlertMessage {
+    font-family: contra;
+    text-align: center;
+}

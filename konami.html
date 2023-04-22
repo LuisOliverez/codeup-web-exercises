@@ -30,15 +30,17 @@
 <div id="customAlert" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">CONGRATS!!!</h5>
-            </div>
+
+
             <div class="modal-body">
                 <p id="customAlertMessage"></p>
             </div>
+
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                <div class="contra"></div>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">The Alien's Lair!!</button>
             </div>
+
         </div>
     </div>
 </div>
@@ -74,8 +76,8 @@
         let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 
         function customAlert(message) {
-            $('#customAlertMessage').html(message);
             $('#customAlert').modal('show');
+            $('#customAlertMessage').html(message);
         }
 
 
@@ -102,6 +104,10 @@
                         'background-size': 'cover',
                     });
 
+                    $(document).ready(function (){
+                        $('h1').addClass('hide');
+                    });
+
                     $('.sounds').append('<audio id="konamiAudio"><source src="./audio/contra%20ending.mp3"></audio>');
 
 
@@ -111,7 +117,7 @@
                     }, 500);
                     });
 
-                    $(".modal-header").replaceWith('<ul class="animate"><li>C</li><li>O</li><li>N</li><li>T</li><li>R</li><li>A</li></ul>');
+                    $(".contra").replaceWith('<ul class="animate"><li>C</li><li>O</li><li>N</li><li>T</li><li>R</li><li>A</li></ul>');
 
                     }
 
