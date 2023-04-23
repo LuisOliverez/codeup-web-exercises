@@ -188,18 +188,18 @@ h1{
 
 #defendAlertMessage{
     font-family: contra;
-    color: red;
-    -webkit-text-stroke: 1px blue;
+    color: darkgrey;
+    -webkit-text-stroke: 1px maroon;
     font-size: 25px;
     text-align: center;
 }
 
 .defend-btn {
     font-family: contra;
-    color: green;
-    font-size: 25px;
-    -webkit-text-stroke: 1px white;
-    background-color: black;
+    color: coral;
+    font-size: 20px;
+    -webkit-text-stroke: 1px lightcoral;
+    background-color: purple;
     float: left;
 }
 
