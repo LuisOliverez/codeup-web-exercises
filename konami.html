@@ -76,6 +76,8 @@
     $(document).ready(function () {
         let userKeys = [];
         let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        let mineCode = [77, 73, 78, 69];
+        let defendCode = [68, 69, 70, 69, 78, 68]
 
         function customAlert(message) {
             $('#customAlert').modal('show');
@@ -116,7 +118,7 @@
                     $(".contra").replaceWith('<ul class="animate1"><li>C</li><li>o</li><li>n</li><li>t</li><li>r</li><li>a</li></ul>');
 
 
-                    }
+
                 $('.custom-btn').click(function () {
                     setTimeout(function (){
                         $("#konamiAudio")[0].play();
@@ -132,10 +134,23 @@
                 });
 
 
+                } else if (userKeys.join(',') === mineCode.join(',')) {
+                    customAlert('WELCOME TO THE MINES!');
+                    $('.sounds').append('<audio id="konamiAudio"><source src="./audio/contra%20ending.mp3"></audio>');
+
+
+
+                }
+                $('.custom-btn').click(function () {
+                    setTimeout(function () {
+                        $("#konamiAudio")[0].play();
+                    }, 500);
+                });
+                });
 
 
             });
-        });
+
     });
 
 </script>
