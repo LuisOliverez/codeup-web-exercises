@@ -36,7 +36,7 @@ console.log(helloMessage);
 // //  * variable to the 'sayHello' function. You should see the same output in the
 // //  * console.
 // //  */
-var myName = "Luis"
+var myName = prompt("What did you say your name was?");
 sayHello + myName
 console.log(sayHello(myName));
 //
@@ -135,20 +135,19 @@ console.log ("The price after discount is: $" + finalPrice.toFixed(2));
 alert ("The price after discount is: $" + finalPrice.toFixed(2));
 
 
-//
-// //Extra Practice. Price Matching, with 10% off for finding a lower price
-//
-//
-// function priceMatch(theirPrice, discount){
-//     var newPrice = theirPrice * discount;
-//     return newPrice;
-// }
-//
-// alert("You have found something that we offer, but at a lower price. Congrats, we Price Match with a 10% discount!")
-// var theirPrice = Number(prompt("What price did you find this product marked at?"));
-// var discount = .9;
-// var newPrice = theirPrice * discount;
-// alert ("Your new price is: $" + newPrice.toFixed(2));
-// console.log ("Your new Price is: $" + newPrice.toFixed(2))
-//
 
+//Extra Practice. Price Matching, with 10% off for finding a lower price
+
+alert("You have found something that we offer, but at a lower price. Congrats, we Price Match with a 10% discount!")
+var theirPrice = Number(prompt("What price did you find this product marked at?"));
+var discount = .9;
+
+function priceMatch(theirPrice, discount) {
+    var newPrice = theirPrice * discount;
+
+    alert("Your new price is: $" + newPrice.toFixed(2));
+    console.log("Your new Price is: $" + newPrice.toFixed(2))
+
+}
+// MUST CALL FUNCTION TO TRIGGER ALERT AND LOG ABOVE
+priceMatch(theirPrice, discount);
