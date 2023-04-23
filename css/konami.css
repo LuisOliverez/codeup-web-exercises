@@ -137,3 +137,11 @@ h1{
     text-align: center;
     background: antiquewhite;
 }
+
+
+#mineAlertMessage{
+    font-family: oldGameFatty;
+    color: darkgoldenrod;
+    font-size: 25px;
+    text-align: center;
+}

@@ -207,11 +207,13 @@ $('body').keydown(function (){
                      defendAlert('PREPARE YOUR DEFENSES!!')
 
                     $('h1').replaceWith('<div style="height: 480px; width: 320px;" >\n' +
-                        '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/captain-rogers-defense-of-karmax" frameborder="0" scrolling="no"></iframe></div>')
+                        '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/captain-rogers-defense-of-karmax" border="0" scroll="auto"></iframe></div>')
 
-
-
-
+                    $('.modal-content').css({
+                        'background-image': 'url("images/")',
+                        'background-size': '100% 100%',
+                        'background-position': 'center'
+                    });
 
 
             }
