@@ -98,7 +98,7 @@ console.log(analyzeColor(userColor))
  * return value.
  */
 var luckyNumber = (Math.floor(Math.random() * 6));//creat the var=luckyNumber to store the random generated number as luckyNumber to call on later
-alert ("Your number is: " + luckyNumber)//creat the alert to show user their luckyNumber
+alert ("Your lucky number is: " + luckyNumber)//creat the alert to show user their luckyNumber
 var yourNumber = luckyNumber;//call on luckyNumber to store in yourNumber also
 var totalAmount =prompt("What is your current total?")//prompt user for totalAmount to be stored
 function calculateTotal(yourNumber, totalAmount){//creat the function to calculateTotal, taking in users var=yourNumber(ie.var=luckyNumber) and var=totalAmount
@@ -134,7 +134,7 @@ console.log ("Your new total is: $" + newTotal.toFixed(2));//console.log(display
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
 
-alert("You're total before discount is: $" + totalAmount + ". Your new total is: $" + newTotal);
+alert("You're total before discount was: $" + totalAmount + ". Your new total is: $" + newTotal);
 
 //alert to display the var=totalAmount before disc, and var=newTotal
 /**
