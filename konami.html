@@ -108,9 +108,10 @@
 <script>
     "use strict";
 
-let keyPress = new Audio()
-$('body').click(function (){
-
+let keyPress = new Audio('audio/button-19.mp3')
+$('body').keydown(function (){
+    keyPress.currentTime = 0;
+    keyPress.play();
 });
 
 
