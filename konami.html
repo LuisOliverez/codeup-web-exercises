@@ -201,11 +201,16 @@ $('body').keydown(function (){
 
                     $('.sounds').append('<audio id="mineAudio"><source src="./audio/im-tired-of-this-grandpa-thats-too-damn-bad.mp3"></audio>');
 
-                    $('.mine').replaceWith('<h1 style="cursor: url(\'images/pickaxes.gif\'), auto;"></h1>');
+
 
                     $('h1').replaceWith('<div style="height: 480px; width: 320px;" >\n' +
                         '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/cave-escape"></iframe></div>')
 
+                    // ATTEMPT TO ADD CUSTOM CURSOR WHEN ALERT IS CALLED
+
+                    // $('.mine').css({
+                    //    'cursor': 'url("images/pickaxes.gif")'
+                    // });
 
                     $('.mine-btn').click(function () {
                         setTimeout(function () {
@@ -232,7 +237,27 @@ $('body').keydown(function (){
                         '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/captain-rogers-defense-of-karmax" border="0" scroll="auto"></iframe></div>')
 
 
+                    $('.sounds').append('<audio id="defendAudio"><source src="./audio/contra%20ending.mp3"></audio>');
 
+
+                    // ATTEMPT TO ADD CUSTOM CURSOR WHEN ALERT IS CALLED
+
+                    // $('.mine').css({
+                    //    'cursor': 'url("images/pickaxes.gif")'
+                    // });
+
+                    $('.defend-btn').click(function () {
+                        setTimeout(function () {
+                            $("#defendAudio")[0].play();
+                        }, 500);
+                    });
+
+                    $('.modal-content').css({
+                        'background-color': 'red',
+                        'background-size': '100% 100%',
+                        'background-position': 'center',
+
+                    });
 
             }
 
