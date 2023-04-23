@@ -33,7 +33,7 @@
 
 <div id="contraAlert" class="modal contra-modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content contra-alert-bg">
 
 
             <div class="modal-body">
@@ -54,7 +54,7 @@
 
     <div id="mineAlert" class="modal mine-modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content mine-alert-bg">
 
 
                 <div class="modal-body">
@@ -72,9 +72,9 @@
 
 
 <!--DEFEND ALERT-->
-    <div id="defendAlert" class="modal fade" tabindex="-1" role="dialog">
+    <div id="defendAlert" class="modal defend-modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content defend-alert-bg">
 
 
                 <div class="modal-body">
@@ -183,7 +183,7 @@ $('body').keydown(function (){
 
                     });
 
-                    $('.modal-content').css({
+                    $('.contra-alert-bg').css({
                         'background-image': 'url("images/contra_grass.png")',
                         'background-size': '100% 100%',
                         'background-position': 'center'
@@ -200,17 +200,17 @@ $('body').keydown(function (){
                     $('h1').replaceWith('<div style="height: 480px; width: 320px;" >\n' +
                         '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/cave-escape"></iframe></div>')
 
-                    $('.modal-content').css({
-                        'background-image': 'url("images/minecart.gif")',
-                        'background-size': '100% 100%',
-                        'background-position': 'center'
-                    });
-
 
                     $('.mine-btn').click(function () {
                         setTimeout(function () {
                             $("#mineAudio")[0].play();
                         }, 500);
+                    });
+
+                    $('.modal-content').css({
+                        'background-image': 'url("images/minecart.gif")',
+                        'background-size': '100% 100%',
+                        'background-position': 'center'
                     });
 
                 //     DEFEND CONDITIONAL
