@@ -12,9 +12,9 @@
 
 </head>
 
-  <div class="container">                  <!--PAGE CONTENT-->
-<body class="sounds">
-
+                 <!--PAGE CONTENT-->
+<body class="sounds mine defend">
+<div class="container">
 <h1>
     --ADD 30 LIVES--
 </h1>
@@ -28,19 +28,20 @@
 </h1>
 <!--DEFEND-->
 
+<!--CONTRA ALERT-->
 
-<div id="customAlert" class="modal fade" tabindex="-1" role="dialog">
+<div id="contraAlert" class="modal contra-modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
 
             <div class="modal-body">
-                <p id="customAlertMessage"></p>
+                <p id="contraAlertMessage"></p>
             </div>
 
             <div class="modal-footer">
                 <div class="contra"></div>
-                <button type="button" class="btn custom-btn" data-dismiss="modal">The Alien's Lair!!</button>
+                <button type="button" class="btn contra-btn" data-dismiss="modal">The Alien's Lair!!</button>
             </div>
 
         </div>
@@ -48,6 +49,45 @@
 </div>
 
 
+<!--    MINE ALERT-->
+
+    <div id="mineAlert" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+
+                <div class="modal-body">
+                    <p id="mineAlertMessage"></p>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="mine"></div>
+                    <button type="button" class="btn mine-btn" data-dismiss="modal">MORE DIGGING?!?!</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+<!--DEFEND ALERT-->
+    <div id="defendAlert" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+
+                <div class="modal-body">
+                    <p id="defendAlertMessage"></p>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="mine"></div>
+                    <button type="button" class="btn mine-btn" data-dismiss="modal">FIRE AT WILL!</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
@@ -79,11 +119,22 @@
         let mineCode = [77, 73, 78, 69];
         let defendCode = [68, 69, 70, 69, 78, 68]
 
-        function customAlert(message) {
-            $('#customAlert').modal('show');
-            $('#customAlertMessage').html(message);
-        }
 
+        // CONTRA ALERT
+        function contraAlert(message) {
+            $('#contraAlert').modal('show');
+            $('#contraAlertMessage').html(message);
+        }
+        // MINE ALERT
+        function mineAlert(message){
+            $('#mineAlert').modal('show');
+            $('#mineAlertMessage').html(message);
+        }
+        // DEFEND ALERT
+        function defendAlert(message){
+            $('#defendAlert').modal('show');
+            $('#defendAlertMessage').html(message);
+        }
 
         console.log(userKeys);
 
@@ -93,13 +144,13 @@
             $(document).keyup(function (event) {
                 console.log(event.keyCode);
                 userKeys.push(event.keyCode);
+
+                // CONTRA CODE
                 if (userKeys.join(',') === konamiCode.join(',')) {
-                    customAlert('YOU HAVE ADDED 30 LIVES IN');
+                    contraAlert('YOU HAVE ADDED 30 LIVES IN');
 
 
-                    $(document).ready(function (){
-                        $('h1').addClass('hide');
-                    });
+                    $('h1').addClass('hide');
 
 
                     $('body').css({
@@ -114,38 +165,52 @@
                     $('.sounds').append('<audio id="konamiAudio"><source src="./audio/contra%20ending.mp3"></audio>');
 
 
-
                     $(".contra").replaceWith('<ul class="animate1"><li>C</li><li>o</li><li>n</li><li>t</li><li>r</li><li>a</li></ul>');
 
 
+                    $('.contra-btn').click(function () {
+                        setTimeout(function () {
+                            $("#konamiAudio")[0].play();
+                        }, 500);
 
-                $('.custom-btn').click(function () {
-                    setTimeout(function (){
-                        $("#konamiAudio")[0].play();
-                    }, 500);
 
+                    });
 
-                });
-
-                $('.modal-content').css({
-                    'background-image': 'url("images/contra_grass.png")',
-                    'background-size': '100% 100%',
-                    'background-position': 'center'
-                });
+                    $('.modal-content').css({
+                        'background-image': 'url("images/contra_grass.png")',
+                        'background-size': '100% 100%',
+                        'background-position': 'center'
+                    });
 
 
                 } else if (userKeys.join(',') === mineCode.join(',')) {
-                    customAlert('WELCOME TO THE MINES!');
-                    $('.sounds').append('<audio id="konamiAudio"><source src="./audio/contra%20ending.mp3"></audio>');
+                    mineAlert('WELCOME TO THE MINES!');
+
+
+                    $('.sounds').append('<audio id="mineAudio"><source src="./audio/im-tired-of-this-grandpa-thats-too-damn-bad.mp3"></audio>');
+
+                    $('h1').replaceWith('<div style="height: 480px; width: 320px;" >\n' +
+                        '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/cave-escape"></iframe></div>')
+
+
+                    $('.mine-btn').click(function () {
+                        setTimeout(function () {
+                            $("#mineAudio")[0].play();
+                        }, 500);
+                    });
+
+                } else if (userKeys.join(',') === defendCode.join(',')){
+                     defendAlert('PREPARE YOUR DEFENSES!!')
 
 
 
-                }
-                $('.custom-btn').click(function () {
-                    setTimeout(function () {
-                        $("#konamiAudio")[0].play();
-                    }, 500);
-                });
+
+
+
+
+
+            }
+
                 });
 
 
@@ -154,7 +219,7 @@
     });
 
 </script>
-
-</body>
   </div>
+</body>
+
 </html>

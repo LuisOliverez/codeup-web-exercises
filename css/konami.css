@@ -87,7 +87,7 @@ ul li:nth-child(6) {
 }
 
 
-.modal {
+.contra-modal {
 
     background-color: greenyellow;
 
@@ -107,16 +107,16 @@ ul li:nth-child(6) {
 /*    background-color: blueviolet;*/
 /*}*/
 
-.modal-footer {
-    /*background-color: mediumvioletred;*/
-}
-
+/*.modal-footer {*/
+/*    background-color: mediumvioletred;*/
+/*}*/
+/*alert position*/
 .modal-content{
     position: absolute;
     transform: translate(0%, 175%);
 }
 
-#customAlertMessage {
+#contraAlertMessage {
     font-family: oldGameFatty;
     -webkit-text-stroke: 2px #b3b300;
     color: green;
@@ -124,7 +124,7 @@ ul li:nth-child(6) {
     text-align: center;
 }
 
-.custom-btn {
+.contra-btn {
     font-family: oldGameFatty;
     color: darkgreen;
     background-color: #FFA500;
