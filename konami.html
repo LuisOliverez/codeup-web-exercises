@@ -3,6 +3,8 @@
 <head>
 
     <title>Konami Code</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/konami.css">
 
 
@@ -10,19 +12,19 @@
 
 </head>
 
-                    <!--PAGE CONTENT-->
+  <div class="container">                  <!--PAGE CONTENT-->
 <body class="sounds">
 
 <h1>
-    ADD 30 LIVES
+    --ADD 30 LIVES--
 </h1>
 <!--UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT, B, A, ENTER-->
 <h1>
-    A PLACE OF TREASURED WORTH, WHERE RICHES WAIT TO BE UNEARTHED
+   --A PLACE OF TREASURED WORTH, WHERE RICHES WAIT TO BE UNEARTHED--
 </h1>
 <!--MINE-->
 <h1>
-    TO SAFEGUARD OR SHIELD FROM HARM, AND TO PRESENT IN COURT A LEGAL CHARM
+    --TO SAFEGUARD OR SHIELD FROM HARM, AND TO PRESENT IN COURT A LEGAL CHARM--
 </h1>
 <!--DEFEND-->
 
@@ -38,7 +40,7 @@
 
             <div class="modal-footer">
                 <div class="contra"></div>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">The Alien's Lair!!</button>
+                <button type="button" class="btn custom-btn" data-dismiss="modal">The Alien's Lair!!</button>
             </div>
 
         </div>
@@ -93,33 +95,44 @@
                     customAlert('YOU HAVE ADDED 30 LIVES IN');
 
 
-
-
-                    $('body').css({
-                        // 'margin': '0',
-                        // 'padding': '0',
-                        'background-color': '#345203',
-                        'background-image': 'url("images/contra.webp")',
-                        'background-repeat': 'no-repeat',
-                        'background-size': 'cover',
-                    });
-
                     $(document).ready(function (){
                         $('h1').addClass('hide');
                     });
 
+
+                    $('body').css({
+                        'background-color': '#345203',
+                        'background-image': 'url("images/contra.webp")',
+                        'background-repeat': 'no-repeat',
+                        'background-size': '1080px 820px',
+                        'background-position': 'center 0%'
+                    });
+
+
                     $('.sounds').append('<audio id="konamiAudio"><source src="./audio/contra%20ending.mp3"></audio>');
 
 
-                    $('.btn').click(function () {
-                        setTimeout(function (){
-                        $("#konamiAudio")[0].play();
-                    }, 500);
-                    });
 
-                    $(".contra").replaceWith('<ul class="animate"><li>C</li><li>O</li><li>N</li><li>T</li><li>R</li><li>A</li></ul>');
+                    $(".contra").replaceWith('<ul class="animate1"><li>C</li><li>o</li><li>n</li><li>t</li><li>r</li><li>a</li></ul>');
+
 
                     }
+                $('.custom-btn').click(function () {
+                    setTimeout(function (){
+                        $("#konamiAudio")[0].play();
+                    }, 500);
+
+
+                });
+
+                $('.modal-content').css({
+                    'background-image': 'url("images/contra_grass.png")',
+                    'background-size': '100% 100%',
+                    'background-position': 'center'
+                });
+
+
+
 
             });
         });
@@ -128,4 +141,5 @@
 </script>
 
 </body>
+  </div>
 </html>
