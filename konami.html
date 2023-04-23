@@ -14,6 +14,7 @@
 
                  <!--PAGE CONTENT-->
 <body class="sounds mine defend">
+
 <div class="container">
 <h1>
     --ADD 30 LIVES--
@@ -107,8 +108,10 @@
 <script>
     "use strict";
 
+let keyPress = new Audio()
+$('body').click(function (){
 
-
+});
 
 
 
@@ -202,7 +205,8 @@
                 } else if (userKeys.join(',') === defendCode.join(',')){
                      defendAlert('PREPARE YOUR DEFENSES!!')
 
-
+                    $('h1').replaceWith('<div style="height: 480px; width: 320px;" >\n' +
+                        '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/captain-rogers-defense-of-karmax" frameborder="0" scrolling="no"></iframe></div>')
 
 
 
