@@ -52,7 +52,7 @@
 
 <!--    MINE ALERT-->
 
-    <div id="mineAlert" class="modal fade" tabindex="-1" role="dialog">
+    <div id="mineAlert" class="modal mine-modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
 
@@ -82,8 +82,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <div class="mine"></div>
-                    <button type="button" class="btn mine-btn" data-dismiss="modal">FIRE AT WILL!</button>
+                    <div class="defend"></div>
+                    <button type="button" class="btn defend-btn" data-dismiss="modal">FIRE AT WILL!</button>
                 </div>
 
             </div>
@@ -107,6 +107,8 @@
 
 <script>
     "use strict";
+
+//     PAGE FEEDBACK NOISE
 
 let keyPress = new Audio('audio/button-19.mp3')
 $('body').keydown(function (){
@@ -149,7 +151,8 @@ $('body').keydown(function (){
                 console.log(event.keyCode);
                 userKeys.push(event.keyCode);
 
-                // CONTRA CODE
+                // CONTRA CONDITIONAL
+
                 if (userKeys.join(',') === konamiCode.join(',')) {
                     contraAlert('YOU HAVE ADDED 30 LIVES IN');
 
@@ -186,6 +189,7 @@ $('body').keydown(function (){
                         'background-position': 'center'
                     });
 
+                // MINE CONDITIONAL
 
                 } else if (userKeys.join(',') === mineCode.join(',')) {
                     mineAlert('WELCOME TO THE MINES!');
@@ -196,6 +200,12 @@ $('body').keydown(function (){
                     $('h1').replaceWith('<div style="height: 480px; width: 320px;" >\n' +
                         '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/cave-escape"></iframe></div>')
 
+                    $('.modal-content').css({
+                        'background-image': 'url("images/minecart.gif")',
+                        'background-size': '100% 100%',
+                        'background-position': 'center'
+                    });
+
 
                     $('.mine-btn').click(function () {
                         setTimeout(function () {
@@ -203,17 +213,15 @@ $('body').keydown(function (){
                         }, 500);
                     });
 
+                //     DEFEND CONDITIONAL
+
                 } else if (userKeys.join(',') === defendCode.join(',')){
                      defendAlert('PREPARE YOUR DEFENSES!!')
 
                     $('h1').replaceWith('<div style="height: 480px; width: 320px;" >\n' +
                         '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/captain-rogers-defense-of-karmax" border="0" scroll="auto"></iframe></div>')
 
-                    $('.modal-content').css({
-                        'background-image': 'url("images/mine-cart.gif")',
-                        'background-size': '100% 100%',
-                        'background-position': 'center'
-                    });
+
 
 
             }
