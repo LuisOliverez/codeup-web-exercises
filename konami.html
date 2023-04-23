@@ -83,7 +83,7 @@
 
                 <div class="modal-footer">
                     <div class="defend"></div>
-                    <button type="button" class="btn defend-btn" data-dismiss="modal">FIRE AT WILL!</button>
+                    <button type="button" class="btn defend-btn" data-dismiss="modal">FIRE WHEN READY!</button>
                 </div>
 
             </div>
@@ -160,14 +160,16 @@ $('body').keydown(function (){
                     $('h1').addClass('hide');
 
 
-                    $('body').css({
+                    $('body').css(
+
+                        {
                         'background-color': '#345203',
                         'background-image': 'url("images/contra.webp")',
                         'background-repeat': 'no-repeat',
                         'background-size': '1080px 820px',
                         'background-position': 'center 0%'
                     });
-
+                    $('body').css('cursor', 'url(pickaxes.gif), auto');
 
                     $('.sounds').append('<audio id="konamiAudio"><source src="./audio/contra%20ending.mp3"></audio>');
 
@@ -194,8 +196,12 @@ $('body').keydown(function (){
                 } else if (userKeys.join(',') === mineCode.join(',')) {
                     mineAlert('WELCOME TO THE MINES!');
 
+                    // $('body').css('cursor', 'url("images/Pickaxes.gif"), auto');
+
 
                     $('.sounds').append('<audio id="mineAudio"><source src="./audio/im-tired-of-this-grandpa-thats-too-damn-bad.mp3"></audio>');
+
+                    $('.mine').replaceWith('<h1 style="cursor: url(\'images/pickaxes.gif\'), auto;"></h1>');
 
                     $('h1').replaceWith('<div style="height: 480px; width: 320px;" >\n' +
                         '  <iframe style="height:100%;width:100%" src="https://html5gameshq.com/iframed/cave-escape"></iframe></div>')
@@ -210,8 +216,12 @@ $('body').keydown(function (){
                     $('.modal-content').css({
                         'background-image': 'url("images/minecart.gif")',
                         'background-size': '100% 100%',
-                        'background-position': 'center'
+                        'background-position': 'center',
+
                     });
+
+                    // $('.mine').css({
+                    // });
 
                 //     DEFEND CONDITIONAL
 
