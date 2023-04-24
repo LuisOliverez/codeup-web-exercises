@@ -1,5 +1,6 @@
+"use strict";
+
 (function(){
-    "use strict";
     console.log("FROM PLANETS-STRINGS")
     var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
     var planetsArray = planetsString.split('|');
@@ -25,16 +26,12 @@
      * string, and <li> tags around each planet.
      */
 
+    console.log('ADDING BR TAGS');
+
     var planetsBrString = ["Mercury<br>Venus<br>Earth<br>Mars<br>Jupiter<br>Saturn<br>Uranus<br>Neptune"];
     var planetsToArray = planetsBrString.join('<br>');
     console.log(planetsToArray);
 
-
-    // var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
-//     // var planetsArray = planetsString.split('|');
-// var planetsListHtml = ("<ul>\n" + planetsArray.map(planetString => "  <li>planetsArray</li>").join("\n") + "\n</ul>");
-//
-//     console.log(planetsListHtml);
 
 
 })();
