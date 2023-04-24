@@ -13,6 +13,11 @@
    visibility: hidden;
   }
 
+.highlight {
+  background-color: yellow;
+  color: black;
+}
+
 </style>
 
 
@@ -27,7 +32,7 @@
 
 <dl>
 <!--  FAQ 1-->
-  <dt>Grand Canyon National Park: Are there any easy trails in Grand Canyon National Park?</dt>
+  <dt class="parkQ">Grand Canyon National Park: Are there any easy trails in Grand Canyon National Park?</dt>
   <dd class="invisible">Yes, there are several easy trails in the park such as the Rim Trail which offers stunning views of the canyon and is wheelchair accessible. The Bright Angel Trail and South Kaibab Trail offer more challenging hikes with steep inclines and switchbacks.</dd>
 
 
@@ -36,7 +41,7 @@
   <dd class="invisible">The park is open year-round, but the best time to visit depends on your interests. Summer is the peak season and offers the most amenities and activities, but can also be crowded. Spring and fall offer cooler temperatures and fewer crowds, but some facilities may be closed. Winter offers unique experiences such as snowmobiling and cross-country skiing, but some roads and attractions may be closed due to snow.</dd>
 
   <!--  FAQ 3-->
-  <dt>Zion National Park: Can I drive my own car in Zion National Park?</dt>
+  <dt class="parkQ">Zion National Park: Can I drive my own car in Zion National Park?</dt>
   <dd class="invisible">Yes, you can drive your own car in most areas of the park. However, during peak season, the park may implement a shuttle system to reduce congestion.</dd>
 
   <!--  FAQ 4-->
@@ -94,7 +99,11 @@ $(document).ready(function (){
 
 
 
-
+$(document).ready(function (){
+  $('dt').click(function (){
+    $(this).addClass('highlight')
+  })
+})
 
 
 
