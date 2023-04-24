@@ -13,6 +13,11 @@
    visibility: hidden;
   }
 
+#toggle-invisible{
+  color: red;
+  text-decoration: none;
+}
+
 .highlight {
   background-color: yellow;
   color: black;
@@ -28,7 +33,7 @@
 
 <body>
 
-<p>U.S. National Parks FAQs</p>
+<p>TOP 10 U.S. National Parks and top FAQ</p>
 
 <dl>
 <!--  FAQ 1-->
@@ -75,7 +80,7 @@
 </dl>
 
 
-<a href="#" id="toggle-invisible">Toggle Invisible</a>
+<a href="#" id="toggle-invisible">-Toggle Visibility-</a>
 
 
 
@@ -93,18 +98,16 @@ $(document).ready(function (){
   $('#toggle-invisible').click(function (event){
 
   $('.invisible').toggleClass('hidden');
-
   });
+
 });
 
 
 
-$(document).ready(function (){
   $('dt').click(function (){
-    $(this).addClass('highlight')
-  })
-})
+    $(this).toggleClass('highlight')
 
+  });
 
 
 
