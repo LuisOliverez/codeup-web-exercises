@@ -9,7 +9,7 @@
 
     <div class="codeup">
 
-        <h1>This is an exercise</h1>
+        <h1 id="myHeading">This is an exercise</h1>
 
 
         <p class="codeup">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur delectus error itaque, nobis qui quod.</p>
@@ -32,11 +32,15 @@
 
 
 
-    $('h1').click(
-        function (){
+    $('h1').click(function (){
             $(this).css('background-color', 'green');
-        }
-    )
+    });
+$(document).ready(function (){
+    $('h1').click(function (){
+        let h1Value = $('h1').text();
+        alert(h1Value);
+    });
+});
 
 
 
@@ -59,7 +63,7 @@ $('#codeup').hover(
     }
 );
 
-
+$('li').css('font-size', '20px');
 
 
 </script>
