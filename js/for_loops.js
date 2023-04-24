@@ -4,10 +4,10 @@
 console.log("for_loops.js")
 function showMultiplicationTable(num) {
     for (var i = 1; i <= 10; i++) {
-        console.log(num + ' x ' + i + ' = ' + num * 1)
+        console.log(num + ' x ' + i + ' = ' + num * i)
     }
 }
-// showMultiplicationTable(7)
+showMultiplicationTable(7)
 // //establish var 'i' as 1
 // // loop as long as 'i' is < 10:stop once var is incremented to 10 and open scope
 // // log results
