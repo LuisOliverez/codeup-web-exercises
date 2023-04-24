@@ -66,8 +66,9 @@ a {
 }
 
 .profile-details{
-    margin: 1px;
     width: calc(25% - 1em);
+    float: left;
+    margin: 0 .5em;
 }
 
 
@@ -89,12 +90,13 @@ a {
     background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        float: right;
+        float: left;
         display: inline-block;
         width: calc(25% - 1em);
         position: absolute;
         top: 48%;
         left: 74%;
+        margin: 0 .5em;
 }
 
 .who-to-follow li {
@@ -122,13 +124,18 @@ a {
 /*    !*margin-top: 4px;*!*/
 /*}*/
 
-
-
+.container{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
 
 .timeline{
     background: var(--light-bg);
-    margin: -150px 32% -5px;
-    width: 600px;
+    margin: 0 .5em;
+    width: calc(50% - 1em);
     display: inline-block;
     border-radius: 4px;
     padding: 16px;
