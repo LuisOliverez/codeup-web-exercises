@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
 
-
     <meta charset="UTF-8">
     <title>National Parks FAQ</title>
 
+<style>
+
+/*CSS RULE TO HIDE*/
+
+  .hidden{
+   visibility: hidden;
+  }
+
+</style>
 
 
 </head>
@@ -62,6 +70,7 @@
 </dl>
 
 
+<a href="#" id="toggle-invisible">Toggle Invisible</a>
 
 
 
@@ -74,10 +83,23 @@
 
 
 <script>
+$(document).ready(function (){
 
-$('.invisible').css({
-          'visibility': 'hidden'
-        });
+  $('#toggle-invisible').click(function (event){
+
+  $('.invisible').toggleClass('hidden');
+
+  });
+});
+
+
+
+
+
+
+
+
+
 
 
 </script>
