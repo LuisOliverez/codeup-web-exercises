@@ -1,6 +1,6 @@
-(function() {
-    "use strict";
 
+    "use strict";
+    (function() {
 
     // create a circle object
     var circle = {
