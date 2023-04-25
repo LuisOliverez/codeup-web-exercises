@@ -66,14 +66,15 @@ a {
 }
 
 .profile-details{
-    width: calc(25% - 1em);
+    top: 20px;
+    width: calc(25% - 3em);
     float: left;
-    margin: 0 .5em;
+    margin: auto .5em;
 }
 
 
 /*.who-to-follow{*/
-/*    */
+
 /*    background-size: contain;*/
 /*    background-repeat: no-repeat;*/
 /*    background-position: center;*/
@@ -102,7 +103,7 @@ a {
 .who-to-follow li {
     list-style: none;
     margin-bottom: 8px;
-    /*overflow: auto;*/
+    overflow: auto;
 }
 
 .who-to-follow img {
@@ -118,30 +119,38 @@ a {
 }
 
 /*.who-to-follow .follow-link {*/
-/*    !*display: inline-block;*!*/
-/*    !*font-size: 0.8em;*!*/
-/*    !*color: #555;*!*/
-/*    !*margin-top: 4px;*!*/
+/*    display: inline-block;*/
+/*    font-size: 0.8em;*/
+/*    color: #555;*/
+/*    margin-top: 4px;*/
 /*}*/
 
-.container{
-    width: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-}
-
+/*.container{*/
+    /*width: 60%;*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*justify-content: center;*/
+    /*align-items: flex-start;*/
+/*}*/
+/*CENTER TIMELINE AND MOVE IT DOWN */
 .timeline{
     background: var(--light-bg);
-    margin: 0 .5em;
+    /*margin: auto auto;*/
     width: calc(50% - 1em);
     display: inline-block;
     border-radius: 4px;
     padding: 16px;
     overflow: auto;
     background-size: contain;
+    background-color: lightcoral;   /*var(--light-bg)*/
     background-repeat: no-repeat;
+    /*float: left;*/
+    /*display: inline-block;*/
+    /*width: calc(25% - 1em);*/
+    /*position: absolute;*/
+    /*top: 48%;*/
+    /*left: 74%;*/
+    /*margin: 0 .5em;*/
 }
 
 
