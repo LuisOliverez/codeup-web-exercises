@@ -20,6 +20,8 @@
   <tbody id="insertProducts"></tbody>
 </table>
 
+<button id="refresh-btn">Refresh</button>
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
@@ -27,12 +29,13 @@
     "use strict";
 
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-$(document).ready(function (){
+function loadInventory(){
     $.ajax({
   url: 'data/inventory.json',
   method: 'GET',
   dataType: 'json',
   success: function (response) {
+    $("#insertProducts").empty();
 for (let i = 0; i < response.length; i++){
   let item = response[i];
   let row = "<tr>" +
@@ -43,11 +46,20 @@ for (let i = 0; i < response.length; i++){
           "</tr>";
   $("#insertProducts").append(row);
     }
+    console.log(response)
   },
       error: function (xhr, status, error){
         console.log('Error: ' + error);
       }
 });
+}
+// function to
+$(document).ready(function (){
+  loadInventory();
+});
+
+$('refresh-btn').click(function (){
+  loadInventory();
 });
 
 
