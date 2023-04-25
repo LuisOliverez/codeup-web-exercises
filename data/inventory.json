@@ -1,4 +1,5 @@
 [
+
   {
     "title": "Hammer",
     "quantity": 25,
@@ -6,7 +7,9 @@
       "tool"
     ],
     "price": 20
-  }, {
+  },
+
+  {
   "title": "Drill",
   "quantity": 5,
   "categories": [
@@ -14,7 +17,9 @@
     "powered"
   ],
   "price": 100
-}, {
+},
+
+  {
   "title": "Mower",
   "quantity": 5,
   "categories": [
@@ -23,12 +28,52 @@
     "outdoor"
   ],
   "price": 200
-}, {
+},
+
+  {
   "title": "Screwdrivers",
   "quantity": 25,
   "categories": [
     "tool"
   ],
   "price": 10
+},
+
+  {
+    "title": "Impact Drill",
+    "quantity": 20,
+    "categories": [
+      "tool",
+      "power"
+    ],
+    "price": 50
+  },
+
+  {
+  "title": "Framing Square",
+  "quantity": 30,
+  "categories": [
+    "tool",
+    "carpentry"
+  ]
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]

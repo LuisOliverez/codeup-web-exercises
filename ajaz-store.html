@@ -25,7 +25,22 @@
 <script>
   (function() {
     "use strict";
+
     // TODO: Create an AJAX GET request for the file under data/inventory.json
+$.ajax({
+  url: 'data/inventory.json',
+  method: 'GET',
+  dataType: 'json',
+  success: function (response){
+    console.log(response);
+  },
+  error:function (xhr, status, error){{
+    console.log('Error: ' + error);
+  }}
+
+});
+
+
 
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
