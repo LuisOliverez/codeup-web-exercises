@@ -27,7 +27,19 @@
       "Fiction",
       "SiFi"
     ],
-    "date": "February 21st, 2022"
+    "date": "December 31st, 1999"
+  },
+
+
+  {
+    "title": "The Second Entered Post",
+    "content": "This is more made up stuff",
+    "categories": [
+      "Non-Fiction",
+      "Educational",
+      "Science"
+    ],
+    "date": "January 1st, 2000"
   }
 
 
