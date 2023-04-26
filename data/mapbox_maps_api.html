@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Add a geocoder</title>
-  <link rel="shortcut icon" href="images/" type="image/x-icon">
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
@@ -29,7 +28,7 @@
 
 <script>
 <!--  ACCESS TOKEN-->
-let accessToken =  mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
+const accessToken =  mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
 
 // INITIALIZING MAP
 const map = new mapboxgl.Map({
@@ -39,27 +38,75 @@ const map = new mapboxgl.Map({
     zoom: 9, // starting zoom
   });
 
-// create the popup
-const popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        'LU LU Craft Bar + Kitchen:  Modern tavern offering meals made with locally grown meats & produce, plus a patio with river views.');
-
 // create DOM element for the marker
 const el = document.createElement('div');
 el.id = 'marker';
 
-// create the marker
-const marker = new mapboxgl.Marker({
-  color: "#1200b8",
+
+
+const restaurants = [
+  {
+    name: "Lu LU's Craft Bar + Kitchen",
+    description: 'Modern tavern offering meals made with locally grown meats & produce, plus a patio with river views.',
+    lngLat: [-119.24987, 46.2639],
+    color: '#1200b8'
+  },
+  {
+    name: "Anthony's at Columbia Point",
+    description: 'Down-to-earth Pacific Northwest-based seafood chain serving a menu of hearty local catches.',
+    lngLat: [-119.25061, 46.26352],
+    color: '#1200b8'
+  },
+  {
+    name: "Helados La Michoacana",
+    description: "Serving authentic Mexican food and all the treats you could want.",
+    lngLat: [-119.11806, 46.23494],
+    color: '#b82500'
+  },
+  {
+   name: "Foodies",
+    description: 'Burgers, dogs, tacos & sandwiches are served at this snug locale with a lively atmosphere & a patio.',
+    lngLat: [-119.15665, 46.22311],
+    color: '#b82500'
+  }
+
+];
+
+restaurants.forEach(restaurant =>{
+  const popup = new mapboxgl.Popup({ offset: 25}).setText(`${restaurant.name}: ${restaurant.description}`);
+new mapboxgl.Marker({
+  color: restaurant.color,
   draggable: false
-}).setLngLat([-119.2498, 46.2636])
+})
+        .setLngLat(restaurant.lngLat)
         .setPopup(popup)
+
         .addTo(map)
         .getElement()
         .addEventListener('click', function (){
-          popup.addTo(map);
-        });
+          popup.addTo(map)
+        })
+});
 
 
+
+
+
+
+
+
+// // create the marker
+// const marker = new mapboxgl.Marker({
+//   color: "#1200b8",
+//   draggable: false
+// }).setLngLat([-119.2498, 46.2636])
+//         .setPopup(popup)
+//         .addTo(map)
+//         .getElement()
+//         .addEventListener('click', function (){
+//           popup.addTo(map);
+//         });
+//
 
 
 
