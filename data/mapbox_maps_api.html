@@ -13,16 +13,60 @@
 
 <h1>My First Mapbox Map!</h1>
 
+<!--ADDRESS SEARCH-->
+
+<div>
+  <label for="address-input">Enter an address:</label>
+  <input id="address-input" type="text">
+  <button id="go-button">Go</button>
+</div>
+
+  <!--MAP CONTAINER-->
 <div id='map' style='width: 400px; height: 300px;'></div>
 
 <script>
+<!--  ACCESS TOKEN-->
   mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
-  const map = new mapboxgl.Map({
+
+// INITIALIZING MAP
+const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-98.4916, 29.4252], // starting position [lng, lat]
-    zoom: 20, // starting zoom
+    center: [-119.0889, 46.2291], // starting position [lng, lat]
+    zoom: 9, // starting zoom
   });
+
+
+// Set marker options.
+const marker = new mapboxgl.Marker({
+  color: "#1200B8",
+  draggable: true
+}).setLngLat([-119.2498, 46.2636])
+        .addTo(map);
+
+
+//PASCO, WA 46.22912094344201, -119.08897029947448
+// LU LU'S 46.26366758244108, -119.24986584474689
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
