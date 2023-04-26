@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>First Mapbox Map</title>
-
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
-
-
+  <meta charset="utf-8">
+  <title>Add a geocoder</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 80px; left: 0; right: 0; bottom: 0; margin: auto; width: 80%; height: 75vh; transform: translate(0, 0); }
+  </style>
 </head>
 <body>
 
@@ -15,18 +17,18 @@
 
 <!--ADDRESS SEARCH-->
 
-<div>
-  <label for="address-input">Enter an address:</label>
-  <input id="address-input" type="text">
-  <button id="go-button">Go</button>
-</div>
+<!--<div>-->
+<!--  <label for="address-input">Enter an address:</label>-->
+<!--  <input id="address-input" type="text">-->
+<!--  <button id="go-button">Go</button>-->
+<!--</div>-->
 
   <!--MAP CONTAINER-->
-<div id='map' style='width: 400px; height: 300px;'></div>
+<div id='map' style='width: 600px; height: 400px;'></div>
 
 <script>
 <!--  ACCESS TOKEN-->
-  mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
+let accessToken =  mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
 
 // INITIALIZING MAP
 const map = new mapboxgl.Map({
@@ -36,19 +38,58 @@ const map = new mapboxgl.Map({
     zoom: 9, // starting zoom
   });
 
+// create the popup
+const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+        'LU LU Craft Bar + Kitchen:  Modern tavern offering meals made with locally grown meats & produce, plus a patio with river views.');
 
-// Set marker options.
+// create DOM element for the marker
+const el = document.createElement('div');
+el.id = 'marker';
+
+// create the marker
 const marker = new mapboxgl.Marker({
-  color: "#1200B8",
-  draggable: true
+  color: "#1200b8",
+  draggable: false
 }).setLngLat([-119.2498, 46.2636])
-        .addTo(map);
+        .setPopup(popup)
+        .addTo(map)
+        .getElement()
+        .addEventListener('click', function (){
+          popup.addTo(map);
+        });
 
+
+
+
+
+
+
+// // Set marker options.
+// const marker = new mapboxgl.Marker({
+//   color: "#1200B8",
+//   draggable: false
+// }).setLngLat([-119.2498, 46.2636])
+//         .addTo(map);
 
 //PASCO, WA 46.22912094344201, -119.08897029947448
 // LU LU'S 46.26366758244108, -119.24986584474689
 
 
+
+
+
+
+
+
+
+
+// MAP CONTROLLER TO SEARCH AN ADDRESS
+// map.addControl(
+//         new MapboxGeocoder({
+//           accessToken: mapboxgl.accessToken,
+//           mapboxgl: mapboxgl
+//         })
+// );
 
 
 
