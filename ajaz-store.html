@@ -3,24 +3,37 @@
 <html>
 <head>
   <title>Online Store</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
 
-<h1>My Tool Store</h1>
 
-<table id="products">
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Quantity</th>
-    <th>Price</th>
-    <th>Categories</th>
-  </tr>
-  </thead>
-  <tbody id="insertProducts"></tbody>
-</table>
+        <h1>My Tool Store</h1>
 
-<button id="refresh-btn">Refresh</button>
+        <table id="products">
+          <thead>
+          <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+          </tr>
+          </thead>
+          <tbody id="insertProducts"></tbody>
+        </table>
+
+        <button id="refresh-btn">Refresh</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.min.js"></script>
+
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
@@ -29,7 +42,14 @@
     "use strict";
 
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-function loadInventory(){
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
+    function loadInventory(){
     $.ajax({
   url: 'data/inventory.json',
   method: 'GET',
@@ -53,7 +73,8 @@ for (let i = 0; i < response.length; i++){
       }
 });
 }
-// function to
+// FUNCTION TO REFRESH TABLE CONTENTS
+
 $(document).ready(function (){
   loadInventory();
 });
@@ -62,11 +83,6 @@ $('refresh-btn').click(function (){
   loadInventory();
 });
 
-
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
 
 
 
@@ -78,6 +94,13 @@ $('refresh-btn').click(function (){
 
 
 </script>
+
+
+
+
+
+
+
 
 </body>
 </html>
