@@ -34,8 +34,8 @@
 
 <script>
 <!--  ACCESS TOKEN-->
-const accessToken =  mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
-
+const accessToken ='pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
+mapboxgl.accessToken = accessToken
 // INITIALIZING MAP
 const map = new mapboxgl.Map({
 
@@ -59,7 +59,7 @@ const restaurants = [
     lngLat: [-119.24987, 46.2639],
     color: '#1200b8',
     favorite: true,
-    dishes: [{name: 'Burgers', photo:  'Fried Zucchini Steaks', 'Sandwiches']
+    dishes: [{name: `Burgers`, photo: `images/burger.jpg`}, {name: `Fried Zucchini Steaks`, photo: `images/fried-zuc.jpg`},{name: `Sandwiches`, photo: `/images/ruben.jpg`}]
   },
   {
     name: "Anthony's at Columbia Point",
@@ -92,7 +92,9 @@ restaurants.forEach(restaurant =>{
   let content = `<div class="popup-name">${restaurant.name}</div> ${restaurant.description}`;
   if(restaurant.favorite){
     content += '<br><div class="popup-favorite">This is one of my favorite restaurants!</div>';
-    content += '<br><div class="popup-dishes">Some of my favorite dishes are:</div>' + restaurant.dishes.join(',');
+    content += '<br><div class="popup-dishes">Some of my favorite dishes are:</div>'; restaurant.dishes.forEach(dish => {
+      content +=`<div>${dish.name}</div><img src="${dish.photo}" width="200px"><br>`
+    })
   }
   const popup = new mapboxgl.Popup({offset: 25}).setHTML(content);
   new mapboxgl.Marker({
