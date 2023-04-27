@@ -15,13 +15,6 @@
 
 <h1>My First Mapbox Map!</h1>
 
-<!--ADDRESS SEARCH-->
-
-<!--<div>-->
-<!--  <label for="address-input">Enter an address:</label>-->
-<!--  <input id="address-input" type="text">-->
-<!--  <button id="go-button">Go</button>-->
-<!--</div>-->
 
   <!--MAP CONTAINER-->
 <div id='map' style='width: 600px; height: 400px;'></div>
@@ -34,8 +27,8 @@ const accessToken =  mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNs
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-119.0889, 46.2291], // starting position [lng, lat]
-    zoom: 9, // starting zoom
+    center: [-119.19082, 46.24174], // starting position [lng, lat]
+    zoom: 10, // starting zoom
   });
 
 // create DOM element for the marker
@@ -88,63 +81,13 @@ new mapboxgl.Marker({
         })
 });
 
+// create geocoder control and add it to the map
+const geocoder = new MapboxGeocoder({
+  accessToken: accessToken,
+  mapboxgl: mapboxgl
+});
 
-
-
-
-
-
-
-// // create the marker
-// const marker = new mapboxgl.Marker({
-//   color: "#1200b8",
-//   draggable: false
-// }).setLngLat([-119.2498, 46.2636])
-//         .setPopup(popup)
-//         .addTo(map)
-//         .getElement()
-//         .addEventListener('click', function (){
-//           popup.addTo(map);
-//         });
-//
-
-
-
-
-
-// // Set marker options.
-// const marker = new mapboxgl.Marker({
-//   color: "#1200B8",
-//   draggable: false
-// }).setLngLat([-119.2498, 46.2636])
-//         .addTo(map);
-
-//PASCO, WA 46.22912094344201, -119.08897029947448
-// LU LU'S 46.26366758244108, -119.24986584474689
-
-
-
-
-
-
-
-
-
-
-// MAP CONTROLLER TO SEARCH AN ADDRESS
-// map.addControl(
-//         new MapboxGeocoder({
-//           accessToken: mapboxgl.accessToken,
-//           mapboxgl: mapboxgl
-//         })
-// );
-
-
-
-
-
-
-
+map.addControl(geocoder);
 
 
 
