@@ -6,10 +6,23 @@
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+<!-- CSS STYLING FOR PAGE-->
+
   <style>
     body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 80px; left: 0; right: 0; bottom: 0; margin: auto; width: 80%; height: 75vh; transform: translate(0, 0); }
+
+    #map { position: absolute; top: 80px; left: 0; right: 0; bottom: 0; border: 1px solid red; margin: auto; width: 80%; height: 75vh; transform: translate(0, 0); }
+
+    .popup-favorite{font-weight: bold; color: red; margin-top: 5px}
+
+    .popup-dishes{font-weight: bold; color: blue;}
+
+  .popup-name {font-weight: bold; color: blue}
+
   </style>
+
+
 </head>
 <body>
 
@@ -25,11 +38,6 @@ const accessToken =  mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNs
 
 // INITIALIZING MAP
 const map = new mapboxgl.Map({
-  //   container: 'map', // container ID
-  //   style: 'mapbox://styles/mapbox/streets-v12', // style URL
-  //   center: [-119.19082, 46.24174], // starting position [lng, lat]
-  //   zoom: 10, // starting zoom
-  // });
 
 container: 'map', // container ID
 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
@@ -51,7 +59,7 @@ const restaurants = [
     lngLat: [-119.24987, 46.2639],
     color: '#1200b8',
     favorite: true,
-    dishes: ['Burgers','Fried Zucchini Steaks', 'Sandwiches']
+    dishes: [{name: 'Burgers', photo:  'Fried Zucchini Steaks', 'Sandwiches']
   },
   {
     name: "Anthony's at Columbia Point",
@@ -81,10 +89,10 @@ const restaurants = [
 ];
 
 restaurants.forEach(restaurant =>{
-  let content = `${restaurant.name}: ${restaurant.description}`;
+  let content = `<div class="popup-name">${restaurant.name}</div> ${restaurant.description}`;
   if(restaurant.favorite){
-    content += '<br><strong>This is one of my favorite restaurants!</strong>';
-    content += '<br>Some of my favorite dishes are: The ' + restaurant.dishes.join(',');
+    content += '<br><div class="popup-favorite">This is one of my favorite restaurants!</div>';
+    content += '<br><div class="popup-dishes">Some of my favorite dishes are:</div>' + restaurant.dishes.join(',');
   }
   const popup = new mapboxgl.Popup({offset: 25}).setHTML(content);
   new mapboxgl.Marker({
@@ -97,9 +105,10 @@ restaurants.forEach(restaurant =>{
         .addTo(map)
         .getElement()
         .addEventListener('click', function () {
-          popup.addTo(map)
+          popup.addTo(map);
 
-        })
+
+        });
 
 
 });
