@@ -42,52 +42,82 @@ const restaurants = [
     name: "Lu LU's Craft Bar + Kitchen",
     description: 'Modern tavern offering meals made with locally grown meats & produce, plus a patio with river views.',
     lngLat: [-119.24987, 46.2639],
-    color: '#1200b8'
+    color: '#1200b8',
+    favorite: true,
+    dishes: ['Burgers','Fried Zucchini Steaks', 'Sandwiches']
   },
   {
     name: "Anthony's at Columbia Point",
     description: 'Down-to-earth Pacific Northwest-based seafood chain serving a menu of hearty local catches.',
     lngLat: [-119.25061, 46.26352],
-    color: '#1200b8'
+    color: '#b82500',
+    favorite: true,
+    dishes: ['Crispy Coconut Shrimp', 'Seafood Fettuccine', 'Three-Course Sunset Dinner']
   },
   {
     name: "Helados La Michoacana",
     description: "Serving authentic Mexican food and all the treats you could want.",
     lngLat: [-119.11806, 46.23494],
-    color: '#b82500'
+    color: '#1200b8',
+    favorite: true,
+    dishes: ['Aguas Frescas', 'Burritos De Lengua', 'Raspados']
   },
   {
-   name: "Foodies",
-    description: 'Burgers, dogs, tacos & sandwiches are served at this snug locale with a lively atmosphere & a patio.',
-    lngLat: [-119.15665, 46.22311],
-    color: '#b82500'
+   name: "Doggie Style Gourmet",
+    description: "Serving up doggies in so many styles you won't know where to start.",
+    lngLat: [-119.27503, 46.29100],
+    color: '#b82500',
+    favorite: true,
+    dishes: ["Bandit: Choice of doggie topped with DSG chili con carne, shredded cheese, Fritos, and chipotle mayo.", "Bernie Mac: Choice of doggie topped with DSG mac & cheese, bacon, and crispy parmesan-thyme panko topping.", "Poppin' Peño Burger: '1/4 lb. chuck and brisket smash patty with pepper jack cheese, grilled onions and sliced jalapeños, jalapeño cream cheese, jalapeño kettle chips and chipotle mayo on a Martin’s Potato Roll" ]
   }
 
 ];
 
 restaurants.forEach(restaurant =>{
-  const popup = new mapboxgl.Popup({ offset: 25}).setText(`${restaurant.name}: ${restaurant.description}`);
-new mapboxgl.Marker({
-  color: restaurant.color,
-  draggable: false
-})
-        .setLngLat(restaurant.lngLat)
-        .setPopup(popup)
+  let content = `${restaurant.name}: ${restaurant.description}`;
+  if(restaurant.favorite){
+    content += '<br><strong>This is one of my favorite restaurants!</strong>';
+    content += '<br>Some of my favorite dishes are: The ' + restaurant.dishes.join(',');
+  }
+  const popup = new mapboxgl.Popup({offset: 25}).setHTML(content);
+  new mapboxgl.Marker({
+    color: restaurant.color,
+    draggable: false
+  })
 
+          .setLngLat(restaurant.lngLat)
+        .setPopup(popup)
         .addTo(map)
         .getElement()
-        .addEventListener('click', function (){
+        .addEventListener('click', function () {
           popup.addTo(map)
+
         })
+
+
 });
 
-// create geocoder control and add it to the map
-const geocoder = new MapboxGeocoder({
-  accessToken: accessToken,
-  mapboxgl: mapboxgl
-});
-
-map.addControl(geocoder);
+//   const popup = new mapboxgl.Popup({ offset: 25}).setText(`${restaurant.name}: ${restaurant.description}`);
+// new mapboxgl.Marker({
+//   color: restaurant.color,
+//   draggable: false
+// })
+//         .setLngLat(restaurant.lngLat)
+//         .setPopup(popup)
+//         .addTo(map)
+//         .getElement()
+//         .addEventListener('click', function (){
+//           popup.addTo(map)
+//         })
+// });
+//
+// // create geocoder control and add it to the map
+// const geocoder = new MapboxGeocoder({
+//   accessToken: accessToken,
+//   mapboxgl: mapboxgl
+// });
+//
+// map.addControl(geocoder);
 
 
 
