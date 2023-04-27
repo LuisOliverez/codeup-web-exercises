@@ -7,7 +7,7 @@
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
-
+    <script src="js/keys.js"></script>
 
 
 </head>
@@ -21,7 +21,7 @@
 
 <div id='map' style='width: 400px; height: 300px;'></div>
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
+    mapboxgl.accessToken = MAPBOX_KEY;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
