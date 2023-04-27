@@ -31,12 +31,16 @@
         zoom: 9, // starting zoom
     });
 
-    $.get("http://api.openweathermap.org/data/2.5/weather", {
+    $.get("https://api.openweathermap.org/data/3.0/onecall?appid={MAPBOX_KEY}", {
         APPID: OPEN_WEATHER_KEY,
         q:     "Pasco, US",
-        units: 'imperial'
+        units: 'imperial',
+        current: 'current.temp'
+
+
     }).done(function (data){
-        $("#temperature").text(data.main.temp);
+        // $("#temperature").text(data.main.temp);
+        $('#temperature').text(data.main.clouds);
         console.log(data);
     }).fail(function (jqXHR, testStatus, errorThrow){
         console.error(errorThrow);
