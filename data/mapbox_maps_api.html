@@ -25,11 +25,18 @@ const accessToken =  mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNs
 
 // INITIALIZING MAP
 const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-119.19082, 46.24174], // starting position [lng, lat]
-    zoom: 10, // starting zoom
-  });
+  //   container: 'map', // container ID
+  //   style: 'mapbox://styles/mapbox/streets-v12', // style URL
+  //   center: [-119.19082, 46.24174], // starting position [lng, lat]
+  //   zoom: 10, // starting zoom
+  // });
+
+container: 'map', // container ID
+// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: [-119.19082, 46.24174], // starting position
+        zoom: 9 // starting zoom
+});
 
 // create DOM element for the marker
 const el = document.createElement('div');
@@ -97,32 +104,8 @@ restaurants.forEach(restaurant =>{
 
 });
 
-//   const popup = new mapboxgl.Popup({ offset: 25}).setText(`${restaurant.name}: ${restaurant.description}`);
-// new mapboxgl.Marker({
-//   color: restaurant.color,
-//   draggable: false
-// })
-//         .setLngLat(restaurant.lngLat)
-//         .setPopup(popup)
-//         .addTo(map)
-//         .getElement()
-//         .addEventListener('click', function (){
-//           popup.addTo(map)
-//         })
-// });
-//
-// // create geocoder control and add it to the map
-// const geocoder = new MapboxGeocoder({
-//   accessToken: accessToken,
-//   mapboxgl: mapboxgl
-// });
-//
-// map.addControl(geocoder);
 
-
-
-
-
+map.addControl(new mapboxgl.NavigationControl());
 
 
 
