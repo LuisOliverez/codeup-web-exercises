@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <title>Weather Map Project</title>
 
-<!--    MAPBOX CDN-->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+
 
 
 </head>
 <body>
+
+<h1>Weather</h1>
+
+
+
+
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibG9saXZlcmV6IiwiYSI6ImNsZ3kyNmtiMjA1ZGEzcXFncWxxMXUxM3UifQ.Vl0vxfTC9-o4dYAB5iWM9w';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: [-74.5, 40], // starting position [lng, lat]
+        zoom: 9, // starting zoom
+    });
+</script>
+
+<script>
+
+</script>
+
+
 
 </body>
 </html>
