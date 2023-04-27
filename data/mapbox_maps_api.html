@@ -20,6 +20,10 @@
 
   .popup-name {font-weight: bold; color: blue}
 
+    .mapboxgl-popup {
+      position: absolute;
+    }
+
   </style>
 
 
@@ -59,7 +63,12 @@ const restaurants = [
     lngLat: [-119.24987, 46.2639],
     color: '#1200b8',
     favorite: true,
-    dishes: [{name: `Burgers`, photo: `images/burger.jpg`}, {name: `Fried Zucchini Steaks`, photo: `images/fried-zuc.jpg`},{name: `Sandwiches`, photo: `/images/ruben.jpg`}]
+    dishes: [
+            {name: `Burgers`, photo: 'https://s3-media0.fl.yelpcdn.com/bphoto/dzbyVxYziyfGfpGyESwRig/o.jpg'},
+
+      {name: `Fried Zucchini Steaks`, photo: `https://s3-media0.fl.yelpcdn.com/bphoto/nEPBSjq9JTKIHY3wTNA5cw/o.jpg`},
+
+      {name: `Sandwiches`, photo: `https://lulucraftbar.com/wp-content/uploads/2020/04/IMG_2728.jpg`}]
   },
   {
     name: "Anthony's at Columbia Point",
@@ -67,7 +76,12 @@ const restaurants = [
     lngLat: [-119.25061, 46.26352],
     color: '#b82500',
     favorite: true,
-    dishes: ['Crispy Coconut Shrimp', 'Seafood Fettuccine', 'Three-Course Sunset Dinner']
+    dishes: [
+            {name: 'Crispy Coconut Shrimp', photo: 'https://norecipes.com/wp-content/uploads/2022/03/easy-coconut-shrimp-004.jpg'},
+
+      {name: 'Seafood Fettuccine', photo: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Seafood-Pasta-Alfredo_exps49630_SD1999444D06_21_5bC_RMS.jpg'},
+
+      {name: 'Three-Course Sunset Dinner', photo:'https://www.anthonys.com/wp-content/uploads/2020/01/Screen-Shot-2021-12-13-at-11.38.01-AM.png'}]
   },
   {
     name: "Helados La Michoacana",
@@ -75,7 +89,12 @@ const restaurants = [
     lngLat: [-119.11806, 46.23494],
     color: '#1200b8',
     favorite: true,
-    dishes: ['Aguas Frescas', 'Burritos De Lengua', 'Raspados']
+    dishes: [
+            {name: 'Aguas Frescas',photo: 'https://images.squarespace-cdn.com/content/v1/58d2f71ee4fcb53791a22fa5/1590700940351-PNHCU52XGMNF1QT40QWD/heladosenefeb-6.jpg?format=1000w'},
+
+      {name: 'Burritos De Lengua', photo:'https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/eobacwxn/fc5c9309-23e0-465e-9b42-4fdd1c953e43.png'},
+
+      {name:'Raspados', photo:'https://images.squarespace-cdn.com/content/v1/58d2f71ee4fcb53791a22fa5/1590700930783-NTPBDVLWJJDUG06L0IOG/heladosenefeb-4.jpg?format=1000w'}]
   },
   {
    name: "Doggie Style Gourmet",
@@ -83,7 +102,12 @@ const restaurants = [
     lngLat: [-119.27503, 46.29100],
     color: '#b82500',
     favorite: true,
-    dishes: ["Bandit: Choice of doggie topped with DSG chili con carne, shredded cheese, Fritos, and chipotle mayo.", "Bernie Mac: Choice of doggie topped with DSG mac & cheese, bacon, and crispy parmesan-thyme panko topping.", "Poppin' Peño Burger: '1/4 lb. chuck and brisket smash patty with pepper jack cheese, grilled onions and sliced jalapeños, jalapeño cream cheese, jalapeño kettle chips and chipotle mayo on a Martin’s Potato Roll" ]
+    dishes: [
+            {name:'The Bandit', photo:'https://tb-static.uber.com/prod/image-proc/processed_images/aceb6862d1e6be5430eb696af3dfc78a/5954bcb006b10dbfd0bc160f6370faf3.jpeg'},
+
+      {name: 'The Bernie Mac:', photo:'https://pbs.twimg.com/media/EhgJk2hUcAAr1Vp.jpg'},
+
+      {name: 'Poppin" Peño Burger:', photo:'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/12/0/FN_Latin-Burger-Onion-Relish_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371595468483.jpeg'}]
   }
 
 ];
@@ -93,13 +117,15 @@ restaurants.forEach(restaurant =>{
   if(restaurant.favorite){
     content += '<br><div class="popup-favorite">This is one of my favorite restaurants!</div>';
     content += '<br><div class="popup-dishes">Some of my favorite dishes are:</div>'; restaurant.dishes.forEach(dish => {
-      content +=`<div>${dish.name}</div><img src="${dish.photo}" width="200px"><br>`
-    })
+      content +=`<div>${dish.name}</div>`;
+      content += `<img src="${dish.photo}" width="100" height= "100"/>`;
+    });
   }
   const popup = new mapboxgl.Popup({offset: 25}).setHTML(content);
   new mapboxgl.Marker({
     color: restaurant.color,
     draggable: false
+
   })
 
           .setLngLat(restaurant.lngLat)
