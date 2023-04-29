@@ -1,5 +1,4 @@
-
-
+import { MAPBOX_KEY, OPEN_WEATHER_KEY} from './keys.js';
 
 
 mapboxgl.accessToken = MAPBOX_KEY;
