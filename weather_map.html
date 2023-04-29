@@ -39,8 +39,8 @@
 
 
     }).done(function (data){
-        // $("#temperature").text(data.main.temp);
-        $('#temperature').text(data.main.clouds);
+        $("#temperature").text(data.main.temp);
+        // $('#temperature').text(data.main.clouds);
         console.log(data);
     }).fail(function (jqXHR, testStatus, errorThrow){
         console.error(errorThrow);
