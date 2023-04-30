@@ -11,16 +11,20 @@ const map = new mapboxgl.Map({
 
 
 // GEOLOATOR
-navigator.geolocation.getCurrentPosition(function (position){
- const lat = position.coords.latitude;
- const lon = position.coords.longitude;
+// navigator.geolocation.getCurrentPosition(function (position){
+//  const lat = position.coords.latitude;
+//  const lon = position.coords.longitude;
 
  // API CALL
 $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${46.22951}&lon=${-119.09207}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
     .done(function (data){
-        $('#temperature').text(data.main.temp+'F'),
+        $('#temperature').text(data.main.temp+'\u00b0 F'),
         $('#location').text(data.name),
-        $('#condition').text(data.weather[0].main)
+        $('#sky-condition').text(data.weather[0].description),
+        $('#feels-like').text('Feels Like: '+data.main.feels_like+'\u00b0 F'),
+        $('#condition').text(data.main.contition),
+        $('#max-temp').text('High For The Day: '+data.main.temp_max+'\u00b0 F'),
+        $('#min-temp').text('Low For The Day: '+data.main.temp_min+'\u00b0 F')
         console.log(data);
 })
     .fail(function (jqXHR, testStatus, errorThrow){
@@ -29,7 +33,7 @@ $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${46.22951}&lon=${-11
     });
 
 
-});
+
 
 
 
