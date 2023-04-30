@@ -9,14 +9,23 @@ const map = new mapboxgl.Map({
     zoom: 9, // starting zoom
 });
 
+
+// GEOLOATOR
+navigator.geolocation.getCurrentPosition(function (position){
+ const lat = position.coords.latitude;
+ const lon = position.coords.longitude;
+
+ // API CALL
 $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${46.22951}&lon=${-119.09207}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
     .done(function (data){
-        $("#temperature").text(data.main.temp+'F');
+        $('#temperature').text(data.main.temp+'F'),
+        $('#location').text(data.name);
         console.log(data);
 })
     .fail(function (jqXHR, testStatus, errorThrow){
     console.error(errorThrow);
 
+    });
 });
 
 
