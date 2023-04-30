@@ -11,7 +11,7 @@ const map = new mapboxgl.Map({
 
 $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${46.22951}&lon=${-119.09207}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
     .done(function (data){
-        $("#temperature").text(data.main.temp);
+        $("#temperature").text(data.main.temp+'F');
         console.log(data);
 })
     .fail(function (jqXHR, testStatus, errorThrow){

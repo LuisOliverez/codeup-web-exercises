@@ -1,0 +1,18 @@
+.container{
+    border: 1px dashed black;
+
+}
+
+h1 {
+    border: 1px dashed lightcoral;
+}
+
+
+#temperature{
+    border: 1px dashed darkgrey;
+}
+
+#map {
+    border: 1px dashed black;
+}
+
