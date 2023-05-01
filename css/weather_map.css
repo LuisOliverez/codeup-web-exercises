@@ -1,15 +1,20 @@
-.map-container{
-    width: 100vw;
-    height: 100vh;
-    border: 1px dashed black;
 
+h1 {
+    border: 1px solid red;
 }
 
 
+.current-weather{
+    border:  1px solid red;
+}
 
+#map {
+    border: 1px dashed black;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
 
-h1 {
-    border: 1px dashed lightcoral;
 }
 
 
@@ -17,13 +22,7 @@ h1 {
     border: 1px dashed darkgrey;
 }
 
-#map {
-    border: 1px dashed black;
-}
 
-.current-weather{
-    border:  1px solid red;
-}
 
 #location {
     border: 1px dashed black;
