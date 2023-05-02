@@ -10,7 +10,9 @@ mapboxgl.accessToken = MAPBOX_KEY;
 
     const map = new mapboxgl.Map({
         container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/outdoors-v12', // style URL/STYLE OF MAP
+        style: 'mapbox://styles/mapbox/navigation-night-v1', // style URL/STYLE OF MAP
+        center: [-95,37],
+        zoom: 1
     });
 
 const marker = new mapboxgl.Marker({
@@ -56,13 +58,21 @@ $.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&c
 navigator.geolocation.getCurrentPosition (function(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    map.setCenter([lon, lat]);//SET CENTER TO GEOLOCATION LAT/LON
+    map.setCenter([lon, lat]);   //SET CENTER TO GEOLOCATION LAT/LON
+    map.setZoom(1); //SET ZOOM
+    map.easeTo ({
+        center: [lon, lat],
+        zoom: 9,
+        duration: 3000,
+        easing: (t) => {
+            return t * (2 - t)
+        }
+    });
     marker.setLngLat([lon, lat]);
-    map.setZoom(9); //SET ZOOM
     getWeather(lat, lon);
 });
 
-$
+
 
 
 // MARKER DRAGEND EVENT
