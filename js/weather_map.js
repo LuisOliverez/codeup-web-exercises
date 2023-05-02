@@ -6,38 +6,24 @@ import { MAPBOX_KEY, OPEN_WEATHER_KEY} from './keys.js';
 
 // GEO-LOCATOR MAP
 
-// mapboxgl.accessToken = MAPBOX_KEY;
-//
-//     const map = new mapboxgl.Map({
-//         container: 'map', // container ID
-//         style: 'mapbox://styles/mapbox/outdoors-v12', // style URL/STYLE OF MAP
-//     });
-//
-//     //GEOLOCATOR FUNCTION
-// navigator.geolocation.getCurrentPosition (function(position) {
-//     const lat = position.coords.latitude;
-//     const lon = position.coords.longitude;
-//     map.setCenter([lon, lat]);//SET CENTER TO GEOLOCATION LAT/LON
-// });
-// map.setZoom(9); //SET ZOOM
-
-// MAP W/OUT GEO LOCATION FOR RESPONSIVE BUILDING
 mapboxgl.accessToken = MAPBOX_KEY;
-
 
     const map = new mapboxgl.Map({
         container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/navigation-night-v1', // style URL
-        center: [-119.09207, 46.22951], // starting position [lng, lat]
-        zoom: 9, // starting zoom
+        style: 'mapbox://styles/mapbox/outdoors-v12', // style URL/STYLE OF MAP
     });
 
+const marker = new mapboxgl.Marker({
+    draggable: true
+})
+
+    .setLngLat([0, 0])
+    .addTo(map)
 
 
-
-
+function getWeather(lat, lon) {
 // FORCAST API CALL
-$.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${46.22951}&lon=${-119.09207}&cnt=5&appid=${OPEN_WEATHER_KEY}&units=imperial`)
+$.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&cnt=5&appid=${OPEN_WEATHER_KEY}&units=imperial`)
     .done(function (data){
         console.log(data);
         // Update current weather section
@@ -62,28 +48,44 @@ $.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${46.22951}&lon=${-
         console.error(errorThrow);
 
     });
+}
 
 
 
+//GEOLOCATOR FUNCTION
+navigator.geolocation.getCurrentPosition (function(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    map.setCenter([lon, lat]);//SET CENTER TO GEOLOCATION LAT/LON
+    marker.setLngLat([lon, lat]);
+    map.setZoom(9); //SET ZOOM
+    getWeather(lat, lon);
+});
+
+$
 
 
+// MARKER DRAGEND EVENT
+marker.on('dragend', function () {
+    const lngLat = marker.getLngLat();
+    const lat = lngLat.lat;
+    const lon = lngLat.lng;
+    getWeather(lat, lon);
+});
 
-
-
-
- // CURRENT WEATHER API CALL
-//
-//     .done(function (data){
-//         $('#temperature').text('Current Weather in: '+data.name+' '+data.main.temp+'\u00b0 F'),
-//         $('#cloud-condition').text('Cloud Condition: '+ data.weather[0].description),
-//         $('#feels-like').text('Feels Like: '+data.main.feels_like+'\u00b0 F'),
-//         $('#max-temp').text('High For The Day: '+data.main.temp_max+'\u00b0 F'),
-//         $('#min-temp').text('Low For The Day: '+data.main.temp_min+'\u00b0 F')
-//         console.log(data);
-// })
-//     .fail(function (jqXHR, testStatus, errorThrow){
-//     console.error(errorThrow);
-//
-//     });
-
-
+$('#search-form').on('submit', function (event){
+    event.preventDefault();
+    const query = $('#search').val();
+    $.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${MAPBOX_KEY}&limit=5`)
+        .done(function (data) {
+            const lngLat = data.features[0].center;
+            const lon = lngLat[0];
+            const lat = lngLat[1];
+            map.setCenter([lon, lat]);
+            marker.setLngLat([lon, lat]);
+            getWeather(lat, lon);
+        })
+        .fail(function (jqXHR, textStatus, errorThrow){
+            console.log(errorThrow);
+        });
+});
