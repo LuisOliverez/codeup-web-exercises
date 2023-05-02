@@ -29,6 +29,7 @@ $.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&c
     .done(function (data){
         console.log(data);
         // Update current weather section
+        // $('.current-weather .day-date').text(data.)
         $('.current-weather .location').text(data.city.name);
         $('.current-weather .temperature').text(`${data.list[0].main.temp}°F`);
         $('.current-weather .feels-like').text(`Feels like ${data.list[0].main.feels_like}°F`);
@@ -83,7 +84,16 @@ marker.on('dragend', function () {
     getWeather(lat, lon);
 });
 
-$('#search-form').on('submit', function (event){
+map.on('click', function (e) {
+    marker.setLngLat(e.lngLat);
+    const lngLat = marker.getLngLat();
+    const lat = lngLat.lat;
+    const lon = lngLat.lng;
+    getWeather(lat, lon);
+});
+
+
+$('#search-form').on('submit', function (event) {
     event.preventDefault();
     const query = $('#search').val();
     $.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${MAPBOX_KEY}&limit=5`)
@@ -91,10 +101,21 @@ $('#search-form').on('submit', function (event){
             const lngLat = data.features[0].center;
             const lon = lngLat[0];
             const lat = lngLat[1];
-            map.setCenter([lon, lat]);
-            marker.setLngLat([lon, lat]);
-            getWeather(lat, lon);
-        })
+            map.easeTo({
+            center: [lon, lat],
+                zoom: 4,
+                duration: 3000
+        });
+    setTimeout(function (){
+        map.easeTo({
+            center:[lon, lat],
+            zoom: 8,
+            duration: 3000
+        });
+        marker.setLngLat([lon, lat]);
+        getWeather(lat, lon);
+    },3000);
+})
         .fail(function (jqXHR, textStatus, errorThrow){
             console.log(errorThrow);
         });
