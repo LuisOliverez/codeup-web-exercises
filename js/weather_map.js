@@ -31,60 +31,32 @@ mapboxgl.accessToken = MAPBOX_KEY;
         center: [-119.09207, 46.22951], // starting position [lng, lat]
         zoom: 9, // starting zoom
     });
-    //     INCIDENT EVENT LISTENER
-        map.on('click', 'traffic-incidents', function (e) {
-            var feature = e.features[0];
-            var incidentType = feature.properties.type;
-
-            // Use Mapbox Traffic API to retrieve incident details
-            var trafficAPIUrl = 'https://api.mapbox.com/traffic/v1/incidents?access_token=' + mapboxgl.accessToken;
-            var params = {
-                startTimestamp: Math.floor(Date.now() / 1000) - 1800, // 30 minutes ago
-                endTimestamp: Math.floor(Date.now() / 1000),
-                bbox: feature.bbox.join(','),
-                type: incidentType
-            };
-            var trafficAPIRequest = new XMLHttpRequest();
-            trafficAPIRequest.open('GET', trafficAPIUrl + '&' + encodeParams(params), true);
-            trafficAPIRequest.onload = function () {
-                if (trafficAPIRequest.status >= 200 && trafficAPIRequest.status < 400) {
-                    var data = JSON.parse(trafficAPIRequest.responseText);
-                    if (data.features.length > 0) {
-                        // Show incident details on the map
-                        var incident = data.features[0];
-                        var incidentDescription = incident.properties.description;
-                        var incidentCoordinates = incident.geometry.coordinates;
-                        var popup = new mapboxgl.Popup()
-                            .setLngLat(incidentCoordinates)
-                            .setHTML('<p>' + incidentDescription + '</p>')
-                            .addTo(map);
-                    }
-                }
-            };
-            trafficAPIRequest.send();
-        });
-
-        function encodeParams(params) {
-    var encodedParams = [];
-    for (var param in params) {
-        encodedParams.push(encodeURIComponent(param) + '=' + encodeURIComponent(params[param]));
-    }
-    return encodedParams.join('&');
-
-}
-
 
 
 
 
 
 // FORCAST API CALL
-$.get(`https://api.openweathermap.org/data/2.5/weather?lat=${46.22951}&lon=${-119.09207}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
+$.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${46.22951}&lon=${-119.09207}&cnt=5&appid=${OPEN_WEATHER_KEY}&units=imperial`)
     .done(function (data){
-        // $('#day-one-location').text('Current Weather in: '+data.name+' '+data.main.temp+'\u00b0 F')
+        console.log(data);
+        // Update current weather section
+        $('.current-weather .location').text(data.city.name);
+        $('.current-weather .temperature').text(`${data.list[0].main.temp}°F`);
+        $('.current-weather .feels-like').text(`Feels like ${data.list[0].main.feels_like}°F`);
+        $('.current-weather .cloud-condition').text(data.list[0].weather[0].description);
+        $('.current-weather .max-temp').text(`High: ${data.list[0].main.temp_max}°F`);
+        $('.current-weather .min-temp').text(`Low: ${data.list[0].main.temp_min}°F`);
 
-
-        console.log(data)
+        // Update forecast section
+        $('.forecast .day').each(function (index) {
+            $(this).find('.location').text(data.city.name);
+            $(this).find('.temperature').text(`${data.list[index + 1].main.temp}°F`);
+            $(this).find('.feels-like').text(`Feels like ${data.list[index + 1].main.feels_like}°F`);
+            $(this).find('.cloud-condition').text(data.list[index + 1].weather[0].description);
+            $(this).find('.max-temp').text(`High: ${data.list[index + 1].main.temp_max}°F`);
+            $(this).find('.min-temp').text(`Low: ${data.list[index + 1].main.temp_min}°F`);
+        });
     })
     .fail(function (jqXHR, testStatus, errorThrow){
         console.error(errorThrow);
