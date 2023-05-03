@@ -24,35 +24,49 @@ const marker = new mapboxgl.Marker({
 
 
 function getWeather(lat, lon) {
-// FORCAST API CALL
-$.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&cnt=5&appid=${OPEN_WEATHER_KEY}&units=imperial`)
-    .done(function (data){
-        console.log(data);
-        // Update current weather section
-        // $('.current-weather .day-date').text(data.)
-        $('.current-weather .location').text(data.city.name);
-        $('.current-weather .temperature').text(`${data.list[0].main.temp}°F`);
-        $('.current-weather .feels-like').text(`Feels like ${data.list[0].main.feels_like}°F`);
-        $('.current-weather .cloud-condition').text(data.list[0].weather[0].description);
-        $('.current-weather .max-temp').text(`High: ${data.list[0].main.temp_max}°F`);
-        $('.current-weather .min-temp').text(`Low: ${data.list[0].main.temp_min}°F`);
+    $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
+        .done(function (data) {
+            console.log(data);
 
-        // Update forecast section
-        $('.forecast .day').each(function (index) {
-            $(this).find('.location').text(data.city.name);
-            $(this).find('.temperature').text(`${data.list[index + 1].main.temp}°F`);
-            $(this).find('.feels-like').text(`Feels like ${data.list[index + 1].main.feels_like}°F`);
-            $(this).find('.cloud-condition').text(data.list[index + 1].weather[0].description);
-            $(this).find('.max-temp').text(`High: ${data.list[index + 1].main.temp_max}°F`);
-            $(this).find('.min-temp').text(`Low: ${data.list[index + 1].main.temp_min}°F`);
+            // Update current weather section
+            $('.current-weather .location').text(`${data.name} ${new Date(data.dt * 1000).toLocaleDateString()}`);
+            $('.current-weather .temperature').text(`${data.main.temp}°F`);
+            $('.current-weather .feels-like').text(`Feels like ${data.main.feels_like}°F`);
+            $('.current-weather .cloud-condition').text('Cloud Condition: ' + data.weather[0].description);
+            $('.current-weather .max-temp').text(`High: ${data.main.temp_max}°F`);
+            $('.current-weather .min-temp').text(`Low: ${data.main.temp_min}°F`);
+        })
+        .fail(function (jqXHR, testStatus, errorThrow) {
+            console.error(errorThrow);
         });
-    })
-    .fail(function (jqXHR, testStatus, errorThrow){
-        console.error(errorThrow);
 
-    });
+
+    $.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
+        .done(function (data) {
+            console.log(data);
+
+            // Update forecast section
+            let dayCount = 0;
+            let currentDate = '';
+            data.list.forEach(function (item) {
+                if (item.dt_txt.slice(11, 13) === '15' && dayCount < 4) { // check if the time is 3pm and we have not updated data for 4 days yet
+                    if (item.dt_txt.slice(0, 10) !== currentDate) { // check if the date has changed
+                        $('.forecast .day').eq(dayCount).find('.date').text(`${item.dt_txt.slice(5, 7)}/${item.dt_txt.slice(8, 10)}/${item.dt_txt.slice(2, 4)}`);
+                        currentDate = item.dt_txt.slice(0, 10);
+                    }
+                    $('.forecast .day').eq(dayCount).find('.location').text(data.city.name);
+                    $('.forecast .day').eq(dayCount).find('.feels-like').text(`Going to feel Like: ${item.main.feels_like}°F`);
+                    $('.forecast .day').eq(dayCount).find('.cloud-condition').text('Cloud Condition: ' + item.weather[0].description);
+                    $('.forecast .day').eq(dayCount).find('.max-temp').text(`High: ${item.main.temp_max}°F`);
+                    $('.forecast .day').eq(dayCount).find('.min-temp').text(`Low: ${item.main.temp_min}°F`);
+                    dayCount++;
+                }
+            });
+        })
+        .fail(function (jqXHR, testStatus, errorThrow) {
+            console.error(errorThrow);
+        });
 }
-
 
 
 //GEOLOCATOR FUNCTION
@@ -110,7 +124,7 @@ $('#search-form').on('submit', function (event) {
         map.easeTo({
             center:[lon, lat],
             zoom: 8,
-            duration: 3000
+            duration: 2000
         });
         marker.setLngLat([lon, lat]);
         getWeather(lat, lon);

@@ -1,52 +1,149 @@
+/* Set body background color */
 body {
-    padding: 10px;
-
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    animation: raining-flowers 20s linear infinite;
 }
 
+@keyframes raining-flowers {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
 
+/* Style the header */
 h1 {
-    border: 1px solid red;
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #a50034;
+    text-align: center;
 }
 
-
-.current-weather{
-    border:  1px solid red;
+/* Style the search form */
+#search-form {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#map {
-    border: 1px dashed black;
-    border-radius: 300px 300px;
-    position: fixed;
-    bottom: 55vh;
-    right: 0;
-    margin: 10px;
-
+/* Style the search input */
+#search {
+    padding: 0.5rem;
+    width: 60%;
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid #a50034;
 }
 
-
-#temperature{
-    border: 1px dashed darkgrey;
+/* Style the search button */
+#search-form button {
+    border-radius: 0.5rem;
+    background-color: #a50034;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
 }
 
-
-
-#location {
-    border: 1px dashed black;
+/* Style the weather information */
+.weather {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-#feels-like {
-    border: 1px dashed black;
+/* Style the current weather information */
+.current-weather {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #a50034;
 }
 
-#sky-condition {
-    border:  1px dashed black;
+/* Style the temperature */
+.temperature {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #a50034;
 }
 
-#max-temp {
-    border:  1px dashed black;
+/* Style the feels-like temperature */
+.feels-like {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #a50034;
 }
 
-#min-temp {
-    border:  1px dashed black;
+/* Style the cloud condition */
+.cloud-condition {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #a50034;
 }
 
+/* Style the max temperature */
+.max-temp {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #a50034;
+}
+
+/* Style the min temperature */
+.min-temp {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #a50034;
+}
+
+/* Style the forecast information */
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+/* Style each day in the forecast */
+.day {
+    flex-basis: calc(25% - 1rem);
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Set background colors based on the temperature */
+.temperature, .feels-like, .max-temp, .min-temp {
+    padding: 0.5rem;
+    color: #fff;
+}
+
+.temperature {
+    background-color: #ffc2d2; /* pink */
+}
+
+.feels-like, .max-temp {
+    background-color: #f0c42f; /* yellow */
+}
+
+.min-temp {
+    background-color: #007bff; /* blue */
+}
+
+/* Set the font family */
+body, input, button {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
