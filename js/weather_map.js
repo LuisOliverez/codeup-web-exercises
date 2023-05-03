@@ -39,13 +39,13 @@ function getWeatherData(lat, lon) {
             // Change background color based on temperature
             const currentTemp = data.main.temp;
             if (currentTemp < 32) {
-                $('body').css('background-image', 'url("images/coldbg2.gif")'); // Light Blue
+                $('body').css('background-image', 'url("images/coldbg3.gif")'); // COLD BACKGROUND
             } else if (currentTemp < 60) {
-                $('body').css('background-image', 'url("images/fairbg.gif")'); // Light Cyan
-            } else if (currentTemp < 80) {
-                $('body').css('background-image', 'url("images/warmbg.gif")'); // Lemon Chiffon
+                $('body').css('background-image', 'url("images/fairbg.gif")'); // FAIR BACKGROUND
+            } else if (currentTemp < 85) {
+                $('body').css('background-image', 'url("images/warmbg.gif")'); // WARM BACKGROUND
             } else {
-                $('body').css('background-image', 'url("images/hotbg.gif")'); // Light Pink
+                $('body').css('background-image', 'url("images/hotbg.gif")'); // HOT BACKGROUND
             }
         })
         .fail(function (jqXHR, testStatus, errorThrow) {
