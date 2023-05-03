@@ -1,149 +1,128 @@
-/* Set body background color */
-body {
-    background-image: url('');
-    background-size: cover;
-    background-position: center;
-    animation: raining-flowers 20s linear infinite;
-}
 
-@keyframes raining-flowers {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(100%);
-    }
-}
 
-/* Style the header */
+/* Header */
 h1 {
-    font-size: 3rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    color: #a50034;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    color: #444444;
+}
+
+/* Search Form */
+#search-form {
+    margin-top: 30px;
     text-align: center;
 }
 
-/* Style the search form */
-#search-form {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Style the search input */
 #search {
-    padding: 0.5rem;
-    width: 60%;
-    margin-right: 1rem;
-    border-radius: 0.5rem;
-    border: 2px solid #a50034;
-}
-
-/* Style the search button */
-#search-form button {
-    border-radius: 0.5rem;
-    background-color: #a50034;
-    color: #fff;
-    padding: 0.5rem 1rem;
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
     border: none;
+    margin-right: 10px;
+    font-size: 16px;
 }
 
-/* Style the weather information */
+.btn-outline-primary {
+    color: #4285f4;
+    border-color: #4285f4;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #4285f4;
+    border-color: #4285f4;
+}
+
+/* Weather */
 .weather {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    padding: 2rem;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    border-radius: 1rem;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 30px;
 }
 
-/* Style the current weather information */
 .current-weather {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid #a50034;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-/* Style the temperature */
+.date {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.location {
+    margin-top: 10px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
 .temperature {
-    font-size: 6rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    color: #a50034;
+    margin-top: 20px;
+    font-size: 72px;
+    font-weight: 700;
+    color: #4285f4;
 }
 
-/* Style the feels-like temperature */
 .feels-like {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #a50034;
+    margin-top: 10px;
+    font-size: 18px;
 }
 
-/* Style the cloud condition */
 .cloud-condition {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #a50034;
+    margin-top: 10px;
+    font-size: 18px;
 }
 
-/* Style the max temperature */
-.max-temp {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #a50034;
+.max-temp, .min-temp {
+    margin-top: 10px;
+    font-size: 18px;
 }
 
-/* Style the min temperature */
-.min-temp {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #a50034;
-}
-
-/* Style the forecast information */
 .forecast {
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
 }
 
-/* Style each day in the forecast */
 .day {
-    flex-basis: calc(25% - 1rem);
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
 }
 
-/* Set background colors based on the temperature */
-.temperature, .feels-like, .max-temp, .min-temp {
-    padding: 0.5rem;
-    color: #fff;
+.day:last-child {
+    margin-right: 0;
 }
 
-.temperature {
-    background-color: #ffc2d2; /* pink */
+.forecast .date {
+    font-size: 18px;
+    font-weight: 700;
 }
 
-.feels-like, .max-temp {
-    background-color: #f0c42f; /* yellow */
+.forecast .feels-like {
+    font-size: 16px;
+    margin-top: 5px;
 }
 
-.min-temp {
-    background-color: #007bff; /* blue */
+.forecast .cloud-condition {
+    font-size: 16px;
+    margin-top: 5px;
 }
 
-/* Set the font family */
-body, input, button {
-    font-family: 'Roboto', sans-serif;
+.forecast .max-temp, .forecast .min-temp {
+    font-size: 16px;
+    margin-top: 5px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+#map {
+    border-radius: 30px 30px;
+    margin: 0 auto;
 }

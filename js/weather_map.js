@@ -23,7 +23,7 @@ const marker = new mapboxgl.Marker({
     .addTo(map)
 
 
-function getWeather(lat, lon) {
+function getWeatherData(lat, lon) {
     $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
         .done(function (data) {
             console.log(data);
@@ -35,6 +35,18 @@ function getWeather(lat, lon) {
             $('.current-weather .cloud-condition').text('Cloud Condition: ' + data.weather[0].description);
             $('.current-weather .max-temp').text(`High: ${data.main.temp_max}°F`);
             $('.current-weather .min-temp').text(`Low: ${data.main.temp_min}°F`);
+
+            // Change background color based on temperature
+            const currentTemp = data.main.temp;
+            if (currentTemp < 32) {
+                $('body').css('background-image', 'url("images/cold-bg.gif")'); // Light Blue
+            } else if (currentTemp < 60) {
+                $('body').css('background-color', '#E0FFFF'); // Light Cyan
+            } else if (currentTemp < 80) {
+                $('body').css('background-color', '#FFFACD'); // Lemon Chiffon
+            } else {
+                $('body').css('background-color', '#FFB6C1'); // Light Pink
+            }
         })
         .fail(function (jqXHR, testStatus, errorThrow) {
             console.error(errorThrow);
@@ -62,12 +74,22 @@ function getWeather(lat, lon) {
                     dayCount++;
                 }
             });
+
+        //     const forecastTemp = data.main.temp;
+        //     if (forecastTemp < 32) {
+        //         $('body').css('background-color', '#87CEFA'); // Light Blue
+        //     } else if (forecastTemp < 60) {
+        //         $('body').css('background-color', '#E0FFFF'); // Light Cyan
+        //     } else if (forecastTemp < 80) {
+        //         $('body').css('background-color', '#FFFACD'); // Lemon Chiffon
+        //     } else {
+        //         $('body').css('background-color', '#FFB6C1'); // Light Pink
+        //     }
         })
         .fail(function (jqXHR, testStatus, errorThrow) {
             console.error(errorThrow);
         });
 }
-
 
 //GEOLOCATOR FUNCTION
 navigator.geolocation.getCurrentPosition (function(position) {
@@ -84,7 +106,7 @@ navigator.geolocation.getCurrentPosition (function(position) {
         }
     });
     marker.setLngLat([lon, lat]);
-    getWeather(lat, lon);
+    getWeatherData(lat, lon);
 });
 
 
@@ -95,7 +117,7 @@ marker.on('dragend', function () {
     const lngLat = marker.getLngLat();
     const lat = lngLat.lat;
     const lon = lngLat.lng;
-    getWeather(lat, lon);
+    getWeatherData(lat, lon);
 });
 
 map.on('click', function (e) {
@@ -103,7 +125,7 @@ map.on('click', function (e) {
     const lngLat = marker.getLngLat();
     const lat = lngLat.lat;
     const lon = lngLat.lng;
-    getWeather(lat, lon);
+    getWeatherData(lat, lon);
 });
 
 
@@ -127,10 +149,23 @@ $('#search-form').on('submit', function (event) {
             duration: 2000
         });
         marker.setLngLat([lon, lat]);
-        getWeather(lat, lon);
+        getWeatherData(lat, lon);
     },3000);
 })
         .fail(function (jqXHR, textStatus, errorThrow){
             console.log(errorThrow);
         });
 });
+
+
+// get the temperature data
+const temperature = getWeatherData();
+
+// set the background color based on the temperature
+if (temperature < 40) {
+    document.body.className = 'cold';
+} else if (temperature < 75) {
+    document.body.className = 'moderate';
+} else {
+    document.body.className = 'hot';
+}
