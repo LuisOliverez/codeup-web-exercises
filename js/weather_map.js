@@ -19,7 +19,7 @@ const marker = new mapboxgl.Marker({
     draggable: true
 })
 
-    .setLngLat([0, 0])
+    .setLngLat([-95,37])
     .addTo(map)
 
 
@@ -30,22 +30,22 @@ function getWeatherData(lat, lon) {
 
             // Update current weather section
             $('.current-weather .location').text(`${data.name} ${new Date(data.dt * 1000).toLocaleDateString()}`);
-            $('.current-weather .temperature').text(`${data.main.temp}°F`);
-            $('.current-weather .feels-like').text(`Feels like ${data.main.feels_like}°F`);
+            $('.current-weather .temperature').text(`${data.main.temp.toFixed((0))}°F`);
+            $('.current-weather .feels-like').text(`Feels like ${data.main.feels_like.toFixed((0))}°F`);
             $('.current-weather .cloud-condition').text('Cloud Condition: ' + data.weather[0].description);
-            $('.current-weather .max-temp').text(`High: ${data.main.temp_max}°F`);
-            $('.current-weather .min-temp').text(`Low: ${data.main.temp_min}°F`);
+            $('.current-weather .max-temp').text(`High: ${data.main.temp_max.toFixed((0))}°F`);
+            $('.current-weather .min-temp').text(`Low: ${data.main.temp_min.toFixed((0))}°F`);
 
             // Change background color based on temperature
             const currentTemp = data.main.temp;
             if (currentTemp < 32) {
-                $('body').css('background-image', '#87CEFA'); // Light Blue
+                $('body').css('background-image', 'url("images/coldbg2.gif")'); // Light Blue
             } else if (currentTemp < 60) {
-                $('body').css('background-color', '#E0FFFF'); // Light Cyan
+                $('body').css('background-image', 'url("images/fairbg.gif")'); // Light Cyan
             } else if (currentTemp < 80) {
-                $('body').css('background-color', '#FFFACD'); // Lemon Chiffon
+                $('body').css('background-image', 'url("images/warmbg.gif")'); // Lemon Chiffon
             } else {
-                $('body').css('background-color', '#f25100'); // Light Pink
+                $('body').css('background-image', 'url("images/hotbg.gif")'); // Light Pink
             }
         })
         .fail(function (jqXHR, testStatus, errorThrow) {
@@ -66,11 +66,12 @@ function getWeatherData(lat, lon) {
                         $('.forecast .day').eq(dayCount).find('.date').text(`${item.dt_txt.slice(5, 7)}/${item.dt_txt.slice(8, 10)}/${item.dt_txt.slice(2, 4)}`);
                         currentDate = item.dt_txt.slice(0, 10);
                     }
+
                     $('.forecast .day').eq(dayCount).find('.location').text(data.city.name);
-                    $('.forecast .day').eq(dayCount).find('.feels-like').text(`Going to feel Like: ${item.main.feels_like}°F`);
+                    $('.forecast .day').eq(dayCount).find('.feels-like').text(`Going to feel Like: ${item.main.feels_like.toFixed((0))}°F`);
                     $('.forecast .day').eq(dayCount).find('.cloud-condition').text('Cloud Condition: ' + item.weather[0].description);
-                    $('.forecast .day').eq(dayCount).find('.max-temp').text(`High: ${item.main.temp_max}°F`);
-                    $('.forecast .day').eq(dayCount).find('.min-temp').text(`Low: ${item.main.temp_min}°F`);
+                    $('.forecast .day').eq(dayCount).find('.max-temp').text(`High: ${item.main.temp_max.toFixed((0))}°F`);
+                    $('.forecast .day').eq(dayCount).find('.min-temp').text(`Low: ${item.main.temp_min.toFixed((0))}°F`);
                     dayCount++;
                 }
             });
@@ -108,7 +109,6 @@ navigator.geolocation.getCurrentPosition (function(position) {
     marker.setLngLat([lon, lat]);
     getWeatherData(lat, lon);
 });
-
 
 
 
@@ -158,14 +158,3 @@ $('#search-form').on('submit', function (event) {
 });
 
 
-// get the temperature data
-const temperature = getWeatherData();
-
-// set the background color based on the temperature
-if (temperature < 40) {
-    document.body.className = 'cold';
-} else if (temperature < 75) {
-    document.body.className = 'moderate';
-} else {
-    document.body.className = 'hot';
-}
