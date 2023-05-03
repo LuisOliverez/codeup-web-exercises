@@ -21,7 +21,7 @@ h1 {
 #search-form {
     margin: 0 auto;
     width: 80vw;
-    border-radius: 10px 10px;
+    border-radius: 10px 10px 0 0;
     text-align: center;
     background-color: lightblue;
     font-family: Copperplate, serif;
@@ -157,7 +157,7 @@ h1 {
 }
 
 #map {
-    border-radius: 30px 30px;
+    border-radius: 0 0 30px 30px;
     margin: 0 auto;
 }
 
