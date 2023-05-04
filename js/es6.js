@@ -26,11 +26,6 @@ const users = [
         name: 'justin',
         email: 'justin@codeup.com',
         languages: ['html', 'css', 'javascript', 'php']
-    },
-    {
-        name: 'luis',
-        email:'louoliverez901@gmail.com',
-        languages: ['html','css','javascript']
     }
 ];
 
@@ -39,9 +34,13 @@ const users = [
 
 // TODO: replace the `var` keyword with `const`, then try to reassign a variable
 // declared as `const`
-const name = 'your_name_here';
-const email = '';
-const languages = [];
+var name = 'luis';
+var email = 'louoliverez901@gmail.com';
+var languages = ['html', 'css', 'javascript', 'php'];
+
+console.log(name);
+console.log(email);
+console.log(languages);
 
 // TODO: rewrite the object literal using object property shorthand
 users.push({
