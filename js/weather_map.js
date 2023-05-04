@@ -4,7 +4,7 @@ import { MAPBOX_KEY, OPEN_WEATHER_KEY} from './keys.js';
 
 
 
-// MAP INITIALIZAION SET TO N. AMER
+// MAP INITIALIZAION SET TO N. AMERICA
 
 mapboxgl.accessToken = MAPBOX_KEY;
 
