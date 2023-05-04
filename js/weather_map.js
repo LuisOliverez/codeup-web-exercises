@@ -4,7 +4,7 @@ import { MAPBOX_KEY, OPEN_WEATHER_KEY} from './keys.js';
 
 
 
-// GEO-LOCATOR MAP
+// MAP INITIALIZAION SET TO N. AMER
 
 mapboxgl.accessToken = MAPBOX_KEY;
 
@@ -23,6 +23,26 @@ const marker = new mapboxgl.Marker({
     .addTo(map)
 
 
+// GEO LOCATOR TO LOCATE USER(AUTOMATIC WITH PERMISSION)
+navigator.geolocation.getCurrentPosition (function(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    map.setCenter([lon, lat]);   //SET CENTER TO GEOLOCATION LAT/LON
+    map.setZoom(1); //SET ZOOM
+    map.easeTo ({
+        center: [lon, lat],
+        zoom: 9,
+        duration: 3000,
+        easing: (t) => {
+            return t * (2 - t)
+        }
+    });
+    marker.setLngLat([lon, lat]);
+    getWeatherData(lat, lon);
+});
+
+
+// FUNCTION TO GET WEATHER BASED ON MARKER LOCATION(LAT/LON)
 function getWeatherData(lat, lon) {
     $.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
         .done(function (data) {
@@ -36,7 +56,7 @@ function getWeatherData(lat, lon) {
             $('.current-weather .max-temp').text(`High: ${data.main.temp_max.toFixed((0))}°F`);
             $('.current-weather .min-temp').text(`Low: ${data.main.temp_min.toFixed((0))}°F`);
 
-            // Change background color based on temperature
+            // CHANGE BACKGROUND DEPENDANT ON DISPLAYED TEMP
             const currentTemp = data.main.temp;
             if (currentTemp < 32) {
                 $('body').css('background-image', 'url("images/coldbg3.gif")'); // COLD BACKGROUND
@@ -52,7 +72,7 @@ function getWeatherData(lat, lon) {
             console.error(errorThrow);
         });
 
-
+    // FORECAST API CALL DEPENDANT ON MARKER LAT/LON FROM GEOLOCATION/LOCATION ID
     $.get(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}&units=imperial`)
         .done(function (data) {
             console.log(data);
@@ -92,27 +112,12 @@ function getWeatherData(lat, lon) {
         });
 }
 
-//GEOLOCATOR FUNCTION
-navigator.geolocation.getCurrentPosition (function(position) {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-    map.setCenter([lon, lat]);   //SET CENTER TO GEOLOCATION LAT/LON
-    map.setZoom(1); //SET ZOOM
-    map.easeTo ({
-        center: [lon, lat],
-        zoom: 9,
-        duration: 3000,
-        easing: (t) => {
-            return t * (2 - t)
-        }
-    });
-    marker.setLngLat([lon, lat]);
-    getWeatherData(lat, lon);
-});
 
 
 
-// MARKER DRAGEND EVENT
+
+
+// MARKER DRAGEND EVENT HANDLER
 marker.on('dragend', function () {
     const lngLat = marker.getLngLat();
     const lat = lngLat.lat;
@@ -120,6 +125,9 @@ marker.on('dragend', function () {
     getWeatherData(lat, lon);
 });
 
+
+
+// MARKER CLICK EVENT HANDLER
 map.on('click', function (e) {
     marker.setLngLat(e.lngLat);
     const lngLat = marker.getLngLat();
@@ -129,6 +137,8 @@ map.on('click', function (e) {
 });
 
 
+
+// SEARCH LOCATION GEOCODER
 $('#search-form').on('submit', function (event) {
     event.preventDefault();
     const query = $('#search').val();
@@ -137,17 +147,21 @@ $('#search-form').on('submit', function (event) {
             const lngLat = data.features[0].center;
             const lon = lngLat[0];
             const lat = lngLat[1];
+
+            // SLOW ZOOM OUT
             map.easeTo({
             center: [lon, lat],
                 zoom: 4,
                 duration: 3000
         });
+    //         PAUSE TO BEFORE ZOOM IN
     setTimeout(function (){
         map.easeTo({
             center:[lon, lat],
             zoom: 8,
             duration: 2000
         });
+        // SLOW ZOOM IN
         marker.setLngLat([lon, lat]);
         getWeatherData(lat, lon);
     },3000);
@@ -157,4 +171,6 @@ $('#search-form').on('submit', function (event) {
         });
 });
 
+// MAP CONTROLS(ZOOM & PAN)
+map.addControl(new mapboxgl.NavigationControl());
 
