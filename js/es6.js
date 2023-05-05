@@ -34,15 +34,13 @@ const users = [
 
 // TODO: replace the `var` keyword with `const`, then try to reassign a variable✅
 // declared as `const`
-const consName = 'luis';
-const consEmail = 'louoliverez901@gmail.com';
-const consLanguages = ['html', 'css', 'javascript', 'php'];
+const name = 'luis';
+const email = 'louoliverez901@gmail.com';
+const languages = ['html', 'css', 'javascript', 'php'];
 
-
-
-console.log(consName);
-console.log(consEmail);
-console.log(consLanguages);
+console.log(name);
+console.log(email);
+console.log(languages);
 
 
 
@@ -50,7 +48,7 @@ console.log(consLanguages);
 
 
 // TODO: rewrite the object literal using object property shorthand✅
-users.push({ consName, consEmail, consLanguages });
+users.push({ name, email, languages });
 
 
 
@@ -67,10 +65,11 @@ let names = [];
 
 
 // TODO: rewrite the following using arrow functions✅
-users.forEach = (user) => emails.push(user.email);
+// users.forEach = (user) => emails.push(user.email);
+users.forEach(user => email.push(user.email));
 
-users.forEach = (user) => names.push(user.name);
-
+// users.forEach = (user) => names.push(user.name);
+users.forEach = (user) => names.push(user.name));
 
 
 
@@ -98,9 +97,9 @@ users.forEach(function({name, email, languages}) {
 
 
 
-    // TODO: rewrite the assignment below to use template strings
-    developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
-});
+    // TODO: rewrite the assignment below to use template strings✅
+    developers.push('${name}s email is ${email}. ${name} knows ${languages.join(', ')}.');
+
 
 // TODO: Use `let` for the following variable
 var list = '<ul>';
