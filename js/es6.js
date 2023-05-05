@@ -38,18 +38,15 @@ const consName = 'luis';
 const consEmail = 'louoliverez901@gmail.com';
 const consLanguages = ['html', 'css', 'javascript', 'php'];
 
-consEmail = 'not louoliverez@gmail'
+
 
 console.log(consName);
 console.log(consEmail);
 console.log(consLanguages);
 
 // TODO: rewrite the object literal using object property shorthand
-users.push({
-    name: name,
-    email: email,
-    languages: languages
-});
+users.push({ consName, consEmail, consLanguages });
+
 
 // TODO: replace `var` with `let` in the following variable declarations
 var emails = [];
