@@ -34,13 +34,15 @@ const users = [
 
 // TODO: replace the `var` keyword with `const`, then try to reassign a variable
 // declared as `const`
-var name = 'luis';
-var email = 'louoliverez901@gmail.com';
-var languages = ['html', 'css', 'javascript', 'php'];
+const consName = 'luis';
+const consEmail = 'louoliverez901@gmail.com';
+const consLanguages = ['html', 'css', 'javascript', 'php'];
 
-console.log(name);
-console.log(email);
-console.log(languages);
+consEmail = 'not louoliverez@gmail'
+
+console.log(consName);
+console.log(consEmail);
+console.log(consLanguages);
 
 // TODO: rewrite the object literal using object property shorthand
 users.push({
