@@ -43,7 +43,10 @@ const languagesArr = users.filter(user => user.languages.length >= 3 );
 console.log(languagesArr);
 
 
-
+const emails = users.map(function (user){
+    return user['email'];
+});
+console.log(emails);
 
 
 
