@@ -50,14 +50,14 @@ console.log(emails);
 
 
 
+const sumOfExperience = users.reduce ((total, user)=>{
+    return total + user.yearsOfExperience;
+}, 0);
 
+const averageExperience = sumOfExperience / users.length;
 
-
-
-
-
-
-
+console.log(sumOfExperience);
+console.log(averageExperience);
 
 
 
