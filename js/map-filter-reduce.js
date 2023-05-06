@@ -38,26 +38,45 @@ const users = [
     }
 ];
 
-
+// TODO #2✅
 const languagesArr = users.filter(user => user.languages.length >= 3 );
 console.log(languagesArr);
 
-
+// TODO #3✅
 const emails = users.map(function (user){
     return user['email'];
 });
 console.log(emails);
 
 
-
+// TODO #4✅
 const sumOfExperience = users.reduce ((total, user)=>{
     return total + user.yearsOfExperience;
 }, 0);
+console.log(sumOfExperience);
 
 const averageExperience = sumOfExperience / users.length;
 
-console.log(sumOfExperience);
+
 console.log(averageExperience);
 
 
+// TODO #5✅
+const longestEmail = emails.reduce((longest, email)=>{
+    return email.length > longest.length ? email : longest;
+}, '');
+console.log(`${longestEmail} is the longest email`);
 
+
+// TODO #6✅
+users.forEach(function (user){
+    console.log(`${user.name}'s email has ${user.email.length} characters`);
+});
+
+// TODO #7
+const userNames = users.reduce((total, user) => {
+    return
+})
+users.forEach((function (user){
+    console.log(`${user.name}`)
+}))
